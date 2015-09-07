@@ -5,9 +5,12 @@ __author__ = 'shilohmadsen'
 
 import Movies
 
+Movies.StartLoop()
+
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
     n = raw_input("Scanned ID: ")
     if n == "0001603911":
+        Movies.StopLoop()
         break  # stops the loop
     else :
         #Insert various function calls to run files etc.

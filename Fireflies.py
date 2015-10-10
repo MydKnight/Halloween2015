@@ -32,7 +32,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
             Lights.activatePins([11])
         elif num%3 == 2:
             Lights.activatePins([13])
-        print "Modulo: ",n%3
+        print "Modulo: ",num%3
 
 
 

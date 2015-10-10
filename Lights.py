@@ -31,7 +31,7 @@ def showColor(color):
 def activatePins(pinArray):
     for pin in pinArray:
         GPIO.output(pin, True)
-        print "Set " + str(pin) + "to On."
+        print "Set " + str(pin) + " to On. \n"
 
     time.sleep(9)
     #Then set all pins back to false.

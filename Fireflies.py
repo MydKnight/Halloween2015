@@ -7,6 +7,7 @@ import os
 # This code runs the fireflies gag
 
 lastScan = 0
+Lights.setup()
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
     n = raw_input("Scanned ID: ")

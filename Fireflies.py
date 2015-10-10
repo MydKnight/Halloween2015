@@ -18,7 +18,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         if currentScan - lastScan < 15:
             print "Elapsed Time: ", currentScan - lastScan
         else:
-            os.system('mpg321 CreepyLaugh.mp3 &')
+            os.system('mpg321 Assets\CreepyLaugh.mp3 &')
 
         #Finally Log Activation of PI
         Logging.LogAccess(n)
@@ -26,11 +26,11 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Trigger GPIO Pins. Do mod3 on the card. If 0, X and Y, if 1 trigger X, if 2 trigger Y.
         num=int(n)
         if num%3 == 0:
-            Lights.activatePins(11, 13)
+            Lights.activatePins([11, 13])
         elif num%3 == 1:
-            Lights.activatePins(11)
+            Lights.activatePins([11])
         elif num%3 == 2:
-            Lights.activatePins(13)
+            Lights.activatePins([13])
         print "Modulo: ",n%3
 
 

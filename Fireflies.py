@@ -18,7 +18,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         if currentScan - lastScan < 15:
             print "Elapsed Time: ", currentScan - lastScan
         else:
-            os.system('mpg321 Assets\CreepyLaugh.mp3 &')
+            os.system('mpg321 Assets/CreepyLaugh.mp3 &')
 
         #Finally Log Activation of PI
         Logging.LogAccess(n)

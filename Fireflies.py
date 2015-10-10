@@ -27,7 +27,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Trigger GPIO Pins. Do mod3 on the card. If 0, X and Y, if 1 trigger X, if 2 trigger Y.
         num=int(n)
         if num%3 == 0:
-            Lights.activatePins([11, 13])
+            Lights.showColor("red")
         elif num%3 == 1:
             Lights.activatePins([11])
         elif num%3 == 2:

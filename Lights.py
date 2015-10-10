@@ -27,6 +27,11 @@ def showColor(color):
         GPIO.output(15, False)
         return
 
+def activatePins(pinArray):
+    GPIO.cleanup()
+    for pin in pinArray:
+        GPIO.output(pin, True)
+
 def cleanup():
     GPIO.cleanup()
 

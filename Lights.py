@@ -3,6 +3,7 @@ __author__ = 'pi'
 
 import time
 import RPi.GPIO as GPIO
+import time
 
 def setup():
     GPIO.setmode(GPIO.BOARD)
@@ -28,9 +29,11 @@ def showColor(color):
         return
 
 def activatePins(pinArray):
-    GPIO.cleanup()
     for pin in pinArray:
         GPIO.output(pin, True)
+        time.sleep(5)
+        GPIO.cleanup()
+
 
 def cleanup():
     GPIO.cleanup()

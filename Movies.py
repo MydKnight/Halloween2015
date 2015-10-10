@@ -23,6 +23,6 @@ def StartLoop():
     return
 
 def StopLoop():
-    subprocess.Popen(['sudo','pkill', 'info-beamer'])
+    subprocess.Popen(['sudo' ,'pkill', 'info-beamer'])
     #print "Starting Movie Loop"
     return

@@ -29,11 +29,10 @@ def showColor(color):
         return
 
 def activatePins(pinArray):
-    GPIO.setmode(GPIO.BOARD)
     for pin in pinArray:
         GPIO.output(pin, True)
-        time.sleep(5)
-        GPIO.cleanup()
+    time.sleep(5)
+    GPIO.cleanup()
 
 
 def cleanup():

@@ -7,7 +7,7 @@ def DmxSent(state):
 
 universe = 1
 data = array.array('B', [10, 50, 255])
-wrapper = ClientWrapper()
+#wrapper = ClientWrapper()
 #client = wrapper.Client()
 #client.SendDmx(universe, data, DmxSent)
 #wrapper.Run()

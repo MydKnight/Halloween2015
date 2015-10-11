@@ -2,8 +2,8 @@ __author__ = 'madsens'
 from ola.ClientWrapper import ClientWrapper
 import array
 
-#def DmxSent(state):
-#  wrapper.Stop()
+def DmxSent(state):
+  wrapper.Stop()
 
 #universe = 1
 #data = array.array('B', [10, 50, 255])

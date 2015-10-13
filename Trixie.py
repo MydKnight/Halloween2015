@@ -18,12 +18,12 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         if currentScan - lastScan < 15:
             print "Elapsed Time: ", currentScan - lastScan
         else:
-            #Log Activation of PI
-            Logging.LogAccess(n)
-
             #Trigger GPIO Pins. Trixie just uses pin 13
             Lights.activatePins([13])
 
             previousFile = AudioRandomizer.PlayRandomAudio("Assets/Trixie/", previousFile)
+
+            #Log Activation of PI
+            Logging.LogAccess(n, previousFile)
 
             lastScan = currentScan

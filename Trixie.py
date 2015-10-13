@@ -14,8 +14,6 @@ while True:    # Runs until break is encountered. We want to set it to break on 
     if n == "0001603911":
         break  # stops the loop
     else :
-        print "Current Scan: " + currentScan + "\n"
-        print "Last Scan: " + currentScan + "\n"
         #If not within timeout window, play sound file
         if currentScan - lastScan < 15:
             print "Elapsed Time: ", currentScan - lastScan

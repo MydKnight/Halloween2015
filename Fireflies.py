@@ -13,6 +13,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
     n = raw_input("Scanned ID: ")
     currentScan = time.time()
     if n == "0001603911":
+        Lights.cleanup()
         break  # stops the loop
     else :
         #If not within timeout window, play sound file

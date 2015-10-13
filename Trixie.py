@@ -24,7 +24,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
             f.extend(filenames)
             break
         file = random.choice(f)
-        os.system('mpg321 %s &' % file)
+        os.system('mpg321 Assets/Trixie/%s &' % file)
 
         #Trigger GPIO Pins. Trixie just uses pin 13
         Lights.activatePins([13])

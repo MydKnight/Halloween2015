@@ -21,4 +21,4 @@ while True:    # Runs until break is encountered. We want to set it to break on 
 
         #Log Activation of PI
         print "RFID: " + n
-        #Logging.LogAccess(n)
+        Logging.LogAccess(n)

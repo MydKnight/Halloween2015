@@ -24,6 +24,6 @@ while True:    # Runs until break is encountered. We want to set it to break on 
             previousFile = AudioRandomizer.PlayRandomAudio("Assets/Trixie/", previousFile)
 
             #Log Activation of PI
-            Logging.LogAccess(n, previousFile)
+            Logging.LogAudioAccess(n, previousFile)
 
             lastScan = currentScan

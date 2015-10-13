@@ -1,13 +1,29 @@
 __author__ = 'madsens'
-from ola.ClientWrapper import ClientWrapper
-import array
+import Lights
+import Logging
+import time
+from os import walk
+import random
+import os
 
-def DmxSent(state):
-  wrapper.Stop()
+lastScan = 0
+Lights.setup()
 
-universe = 1
-data = array.array('B', [10, 50, 255])
-#wrapper = ClientWrapper()
-#client = wrapper.Client()
-#client.SendDmx(universe, data, DmxSent)
-#wrapper.Run()
+while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
+    n = raw_input("Scanned ID: ")
+    currentScan = time.time()
+    if n == "0001603911":
+        break  # stops the loop
+    else :
+        #Log Activation of PI
+        Logging.LogAccess(n)
+
+        #Play Random Audio File In Trixie folder.
+        f = []
+        for (dirpath, dirnames, filenames) in walk("Assets/Trixie"):
+            f.extend(filenames)
+            break
+        os.system('mpg321 %d &' %random.choice(f))
+
+        #Trigger GPIO Pins. Trixie just uses pin 13
+        Lights.activatePins([13])

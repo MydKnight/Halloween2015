@@ -10,4 +10,4 @@ def PlayRandomAudio(path):
         f.extend(filenames)
         break
     file = random.choice(f)
-    os.system('mpg321 "%s%s" &' % path,file)
+    os.system('mpg321 "%s%s" &' % path,f)

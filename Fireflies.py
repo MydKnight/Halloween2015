@@ -28,10 +28,13 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         num=int(n)
         if num%3 == 0:
             Lights.activatePins([11,13])
+            time.sleep(9)
         elif num%3 == 1:
             Lights.activatePins([11])
+            time.sleep(9)
         elif num%3 == 2:
             Lights.activatePins([13])
+            time.sleep(9)
         print "Modulo: ",num%3
 
 

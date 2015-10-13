@@ -33,7 +33,6 @@ def activatePins(pinArray):
         GPIO.output(pin, True)
         print "Set " + str(pin) + " to On. \n"
 
-    time.sleep(9)
     #Then set all pins back to false.
     GPIO.output(11, False)
     GPIO.output(13, False)

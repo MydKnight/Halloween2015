@@ -23,4 +23,4 @@ while True:    # Runs until break is encountered. We want to set it to break on 
             #Trigger GPIO Pins. Trixie just uses pin 13
             Lights.activatePins([13])
 
-            AudioRandomizer.PlayRandomAudio("Assets/Trixie")
+            AudioRandomizer.PlayRandomAudio("Assets/Trixie/")

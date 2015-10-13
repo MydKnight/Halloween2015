@@ -16,7 +16,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Trigger GPIO Pins. Fogger on 13
         Lights.activatePins([13])
 
-        #Play Furnace Video
+        #Play Furnace Video - Test
         Movies.PlayMovie()
 
         #Log Activation of PI

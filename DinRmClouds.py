@@ -27,8 +27,8 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #If Between the hours of 630-10PM, Play Rumble
         now = datetime.datetime.now()
         now_time = now.time()
-        print time(17,30)
-        if time(17,30) <= now.time() <= time(21,00):
+        print time.time(17,30)
+        if time.time(17,30) <= now.time() <= time.time(21,00):
             if currentScan - lastScan > 15:
                 #Play Soft Thunder
                 print "It is Between 630 and 10 and NOT within activation Lockout. " \

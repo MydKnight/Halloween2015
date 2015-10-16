@@ -47,5 +47,5 @@ while True:    # Runs until break is encountered. We want to set it to break on 
                 previousFile = AudioRandomizer.PlayRandomAudio("Assets/Trixie/", previousFile)
             else:
                 #Play Soft Thunder
-                print "It is outside of Dinner Hours and within the activation Lockout. Do not play audio file."
+                print "It is outside of Dinner Hours and within the activation Lockout. Play Soft Thunder."
                 os.system('mpg321 Assets/CreepyLaugh.mp3 &' )

@@ -42,6 +42,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
             #Else, Play Loud thunder if not in timeout. If IN timeout, play soft dinner thunder
             if currentScan - lastScan > 15:
                 print "It is outside of Dinner Hours and NOT within activation Lockout. Play a random thunder crash."
+                lastScan = currentScan
                 # Play Random Thunder file
                 previousFile = AudioRandomizer.PlayRandomAudio("Assets/Trixie/", previousFile)
             else:

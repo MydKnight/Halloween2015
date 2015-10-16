@@ -7,7 +7,7 @@ import Lights
 import Movies
 import time
 
-Movies.StartLoop()
+Movies.StartLoop('/home/pi/Halloween2015/Assets/VideoLoop')
 Lights.setup()
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.

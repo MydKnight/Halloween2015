@@ -2,6 +2,7 @@ __author__ = 'madsens'
 import Lights
 import Logging
 import Movies
+import time
 
 Lights.setup()
 Movies.StartLoop('/home/pi/Halloween2015/Assets/VideoLoop')
@@ -16,8 +17,14 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Log Activation of PI
         Logging.LogAccess(n)
 
-        #Trigger GPIO Pins. Fogger on 13
-        Lights.activatePins([13])
-
         #Play Furnace Video - Test
         Movies.PlayMovie()
+
+        #Wait until the Air Cannon should fire
+        time.sleep(10)
+
+        #Trigger GPIO Pins. Air Cannon on 13
+        Lights.activatePins([13])
+
+        #Wait for the rest of the Movie
+        time.sleep(5)

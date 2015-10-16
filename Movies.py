@@ -17,8 +17,8 @@ def PlayMovie ():
     os.system('stty sane')
     return
 
-def StartLoop():
-    subprocess.Popen(['sudo', '/home/pi/info-beamer-pi/info-beamer', '/home/pi/Halloween2015/Assets/VideoLoop'])
+def StartLoop(LoopPath):
+    subprocess.Popen(['sudo', '/home/pi/info-beamer-pi/info-beamer', LoopPath])
     #print "Starting Movie Loop"
     return
 

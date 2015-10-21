@@ -12,7 +12,7 @@ Lights.setup()
 previousFile = ""
 music = None
 
-music = Popen('mpg321 Assets/CreepyLaugh.mp3 --loop 0'.split(' ',1), stdout=PIPE, close_fds=True)
+music = Popen('mpg321 Assets/CreepyLaugh.mp3', '--loop 0'.split(' ',1), stdout=PIPE, close_fds=True)
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
     n = raw_input("Scanned ID: ")

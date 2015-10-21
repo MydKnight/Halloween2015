@@ -27,6 +27,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         else:
             #kill crickets loop, play random file from Fireflies folder
             Popen(['sudo', 'pkill', 'mpg321'], stdout=PIPE, close_fds=True)
+            time.sleep(1)
             previousFile = AudioRandomizer.PlayRandomAudio("Assets/Trixie/", previousFile)
             print previousFile
             #Log Activation of PI

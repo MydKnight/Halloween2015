@@ -28,11 +28,9 @@ while True:    # Runs until break is encountered. We want to set it to break on 
             #kill crickets loop, play random file from Fireflies folder
             Popen(['sudo', 'pkill', 'mpg321'], stdout=PIPE, close_fds=True)
             previousFile = AudioRandomizer.PlayRandomAudio("Assets/Trixie/", previousFile)
+            print previousFile
             #Log Activation of PI
             Logging.LogAudioAccess(n, previousFile)
-
-
-
 
         #Trigger GPIO Pins. Do mod3 on the card. If 0, X and Y, if 1 trigger X, if 2 trigger Y.
         num=int(n)

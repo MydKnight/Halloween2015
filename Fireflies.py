@@ -10,8 +10,7 @@ import AudioRandomizer
 lastScan = 0
 Lights.setup()
 previousFile = ""
-music = None
-music = Popen(['mpg321', 'Assets/CreepyLaugh.mp3', '--loop', '0'], stdout=PIPE, close_fds=True)
+Popen(['mpg321', 'Assets/CreepyLaugh.mp3', '--loop', '0'], stdout=PIPE, close_fds=True)
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
     n = raw_input("Scanned ID: ")
@@ -27,8 +26,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
             Logging.LogAccess(n)
         else:
             #kill crickets loop, play random file from Fireflies folder
-            music.stdout.close()
-            music.stdin.close()
+            Popen(['sudo', 'pkill', 'mpg321'], stdout=PIPE, close_fds=True)
             previousFile = AudioRandomizer.PlayRandomAudio("Assets/Trixie/", previousFile)
             #Log Activation of PI
             Logging.LogAudioAccess(n, previousFile)

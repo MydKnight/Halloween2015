@@ -4,7 +4,7 @@ import random
 import os
 
 def PlayRandomAudio(path, previousFile):
-    #Play Random Audio File In Trixie folder.
+    #Play Random Audio File In Pathed folder.
 
     f = []
     for (dirpath, dirnames, filenames) in walk(path):

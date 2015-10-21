@@ -3,11 +3,16 @@ __author__ = 'madsens'
 import Lights
 import time
 import Logging
-import os
+from subprocess import Popen, PIPE
+import AudioRandomizer
 # This code runs the fireflies gag
 
 lastScan = 0
 Lights.setup()
+previousFile = ""
+music = None
+
+music = Popen('mpg321 Assets/CreepyLaugh.mp3 --loop 0'.split(' ',1), stdout=PIPE, close_fds=True)
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
     n = raw_input("Scanned ID: ")
@@ -19,11 +24,16 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #If not within timeout window, play sound file
         if currentScan - lastScan < 15:
             print "Elapsed Time: ", currentScan - lastScan
+            #Log Activation of PI - No Audio
+            Logging.LogAccess(n)
         else:
-            os.system('mpg321 Assets/CreepyLaugh.mp3 &')
+            #kill crickets loop, play random file from Fireflies folder
+            previousFile = AudioRandomizer.PlayRandomAudio("Assets/Trixie/", previousFile)
+            #Log Activation of PI
+            Logging.LogAudioAccess(n, previousFile)
 
-        #Finally Log Activation of PI
-        Logging.LogAccess(n)
+
+
 
         #Trigger GPIO Pins. Do mod3 on the card. If 0, X and Y, if 1 trigger X, if 2 trigger Y.
         num=int(n)

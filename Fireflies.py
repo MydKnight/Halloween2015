@@ -46,6 +46,8 @@ while True:    # Runs until break is encountered. We want to set it to break on 
             time.sleep(9)
         print "Modulo: ",num%3
 
+        Popen(['mpg321', 'Assets/CreepyLaugh.mp3', '--loop', '0'], stdout=PIPE, close_fds=True)
+
         lastScan = currentScan
 
 

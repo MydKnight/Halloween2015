@@ -27,6 +27,8 @@ while True:    # Runs until break is encountered. We want to set it to break on 
             Logging.LogAccess(n)
         else:
             #kill crickets loop, play random file from Fireflies folder
+            music.stdout.close()
+            music.stdin.close()
             previousFile = AudioRandomizer.PlayRandomAudio("Assets/Trixie/", previousFile)
             #Log Activation of PI
             Logging.LogAudioAccess(n, previousFile)

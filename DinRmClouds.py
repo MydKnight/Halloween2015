@@ -4,7 +4,7 @@ import Lights
 import os
 import datetime
 import time
-import AudioRandomizer
+import subprocess
 import signal
 
 #Lights.setup()
@@ -15,6 +15,9 @@ TIMEOUT = 30
 
 def interrupted(signum, frame):
     print 'Nine minutes have passed. Playing files'
+    #Stop Playback of loop, and give it a second to clear
+    subprocess.Popen(['sudo' ,'pkill', 'mpg321'])
+    time.sleep(.5)
     # Play Thunder sequence
     os.system('mpg321 Assets/Thunder/Lightning1.mp3 &' )
     time.sleep(5)
@@ -41,6 +44,11 @@ def input():
             return False
         else :
             print 'Doing our cool stuff'
+
+            #Stop Playback of loop, and give it a second to clear
+            subprocess.Popen(['sudo' ,'pkill', 'mpg321'])
+            time.sleep(.5)
+
             #Trigger GPIO Pins. Lightning sticks on 13 - Temp disabling this too.
             #Lights.activatePins([13])
             print "Activate Pins\n"
@@ -83,6 +91,8 @@ def input():
         return
 
 while True:
+    #play background loop
+    os.system('mpg321 Assets/Thunder/RagingWinds.mp3 --loop 0 &' )
     #set alarm
     print "Setting alarm to: ", TIMEOUT
     signal.alarm(TIMEOUT)

@@ -60,7 +60,7 @@ def input():
                 if currentScan - lastScan > 15:
                     print "It is outside of Dinner Hours and NOT within activation Lockout. Play a random thunder crash."
                     lastScan = currentScan
-                    # Play Random Thunder file
+                    # Play Thunder Sequence
                     os.system('mpg321 Assets/Thunder/Lightning1.mp3 &' )
                     time.sleep(5)
                     os.system('mpg321 Assets/Thunder/Lightning2.mp3 &' )
@@ -74,6 +74,13 @@ def input():
         return
     except:
         #timeout
+        # Play Thunder sequence
+        os.system('mpg321 Assets/Thunder/Lightning1.mp3 &' )
+        time.sleep(5)
+        os.system('mpg321 Assets/Thunder/Lightning2.mp3 &' )
+        time.sleep(5)
+        os.system('mpg321 Assets/Thunder/Lightning4.mp3 &' )
+        time.sleep(10)
         return
 
 while True:

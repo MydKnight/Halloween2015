@@ -11,7 +11,7 @@ import signal
 previousFile = ""
 lastScan = 0
 
-TIMEOUT = 30
+TIMEOUT = 60
 
 def interrupted(signum, frame):
     print 'Nine minutes have passed. Playing files'
@@ -72,9 +72,6 @@ def input():
                     os.system('mpg321 Assets/Thunder/Lightning2.mp3 &' )
                     time.sleep(5)
                     os.system('mpg321 Assets/Thunder/Lightning4.mp3 &' )
-                    print 'You shouldnt be able to do anything for a minute'
-                    time.sleep(60)
-                    print 'Now you can resume scanning.'
                 else:
                     #Play Soft Thunder
                     print "It is outside of Dinner Hours and within the activation Lockout. Play Soft Thunder."

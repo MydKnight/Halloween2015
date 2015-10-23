@@ -14,8 +14,8 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         Lights.cleanup()
         break  # stops the loop
     else :
-        #Log Activation of PI
-        Logging.LogAccess(n)
+        #Log Activation of PI - Disabled until we're configured on the castle network
+        #Logging.LogAccess(n)
 
         #Play Furnace Video - Test
         Movies.PlayMovie()

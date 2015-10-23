@@ -14,8 +14,14 @@ lastScan = 0
 TIMEOUT = 30
 
 def interrupted(signum, frame):
-    #do stuff when read times out
-    print 'Interrupting to do other things'
+    print 'Nine minutes have passed. Playing files'
+    # Play Thunder sequence
+    os.system('mpg321 Assets/Thunder/Lightning1.mp3 &' )
+    time.sleep(5)
+    os.system('mpg321 Assets/Thunder/Lightning2.mp3 &' )
+    time.sleep(5)
+    os.system('mpg321 Assets/Thunder/Lightning4.mp3 &' )
+    time.sleep(10)
 
 signal.signal(signal.SIGALRM, interrupted)
 
@@ -74,13 +80,6 @@ def input():
         return
     except:
         #timeout
-        # Play Thunder sequence
-        os.system('mpg321 Assets/Thunder/Lightning1.mp3 &' )
-        time.sleep(5)
-        os.system('mpg321 Assets/Thunder/Lightning2.mp3 &' )
-        time.sleep(5)
-        os.system('mpg321 Assets/Thunder/Lightning4.mp3 &' )
-        time.sleep(10)
         return
 
 while True:

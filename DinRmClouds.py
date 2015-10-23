@@ -22,6 +22,7 @@ def interrupted(signum, frame):
     time.sleep(5)
     os.system('mpg321 Assets/Thunder/Lightning4.mp3 &' )
     time.sleep(10)
+    return
 
 signal.signal(signal.SIGALRM, interrupted)
 

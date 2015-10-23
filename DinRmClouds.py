@@ -25,6 +25,9 @@ def interrupted(signum, frame):
     time.sleep(5)
     os.system('mpg321 Assets/Thunder/Lightning4.mp3 &' )
     time.sleep(10)
+    #play background loop
+    os.system('mpg321 Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 &' )
+
     signal.alarm(TIMEOUT)
 
 signal.signal(signal.SIGALRM, interrupted)
@@ -92,7 +95,7 @@ def input():
 
 while True:
     #play background loop
-    os.system('mpg321 Assets/Thunder/RagingWinds.mp3 --loop 0 &' )
+    os.system('mpg321 Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 &' )
     #set alarm
     print "Setting alarm to: ", TIMEOUT
     signal.alarm(TIMEOUT)

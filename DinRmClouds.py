@@ -13,21 +13,23 @@ lastScan = 0
 
 TIMEOUT = 30
 
-def interrupted(signum, frame):
-    print 'Nine minutes have passed. Playing files'
+def thunderLine(volume):
     #Stop Playback of loop, and give it a second to clear
     subprocess.Popen(['sudo' ,'pkill', 'mpg321'])
     time.sleep(.5)
     # Play Thunder sequence
-    os.system('mpg321 Assets/Thunder/Lightning1.mp3 -q &')
+    os.system('mpg321 Assets/Thunder/Lightning1.mp3 --gain %s -q &', volume)
     time.sleep(5)
-    os.system('mpg321 Assets/Thunder/Lightning2.mp3 -q &')
+    os.system('mpg321 Assets/Thunder/Lightning2.mp3 --gain %s -q &', volume)
     time.sleep(5)
-    os.system('mpg321 Assets/Thunder/Lightning4.mp3 -q &')
-    time.sleep(10)
+    os.system('mpg321 Assets/Thunder/Lightning4.mp3 --gain %s -q', volume)
+    time.sleep(2)
     #play background loop
     os.system('mpg321 Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
 
+def interrupted(signum, frame):
+    print 'Nine minutes have passed. Playing files'
+    thunderLine(100)
     signal.alarm(TIMEOUT)
 
 signal.signal(signal.SIGALRM, interrupted)
@@ -45,12 +47,28 @@ def input():
             print 'PKill scanned. Aborting Script.'
             Lights.cleanup()
             return False
+        elif n == "1234":
+            #Do Katies stuff
+            #Play Thunderline
+            thunderLine(100)
+
+            #Dim DMX 30% Light Channels, 0% Blacklight Channels
+
+            #Play Horseman Audio
+            os.system('mpg321 Assets/HorsemanSlashes.mp3 -q &')
+            time.sleep(6)
+
+            #Trigger GPIO Pins. Head Chop on 15 - Temp disabling this too.
+            #Lights.activatePins([15])
+            time.sleep(3)
+
+            #Bring house lights back up DMX Lights 100%
+            time.sleep(30)
+
+            #Reset Heads GPIO 11 then bring blacklight back up after 5
+            #Lights.activatePins([11])
         else :
             print 'Doing our cool stuff'
-
-            #Stop Playback of loop, and give it a second to clear
-            subprocess.Popen(['sudo' ,'pkill', 'mpg321'])
-            time.sleep(.5)
 
             #Trigger GPIO Pins. Lightning sticks on 13 - Temp disabling this too.
             #Lights.activatePins([13])
@@ -68,7 +86,7 @@ def input():
                     #Play Soft Thunder
                     print "It is Between 630 and 10 and NOT within activation Lockout. " \
                           "Play the Dinnertime Rumble of thunder.\n"
-                    os.system('mpg321 Assets/CreepyLaugh.mp3 -q &')
+                    thunderLine(30)
                     lastScan = currentScan
                 else:
                     print "It is between 630 and 10 and within the activation Lockout. " \
@@ -76,18 +94,14 @@ def input():
             else:
                 #Else, Play Loud thunder if not in timeout. If IN timeout, play soft dinner thunder
                 if currentScan - lastScan > 15:
-                    print "It is outside of Dinner Hours and NOT within activation Lockout. Play a random thunder crash."
+                    print "It is outside of Dinner Hours and NOT within activation Lockout. Play thunder."
                     lastScan = currentScan
                     # Play Thunder Sequence
-                    os.system('mpg321 Assets/Thunder/Lightning1.mp3 -q &')
-                    time.sleep(5)
-                    os.system('mpg321 Assets/Thunder/Lightning2.mp3 -q &')
-                    time.sleep(5)
-                    os.system('mpg321 Assets/Thunder/Lightning4.mp3 -q &')
+                    thunderLine(100)
                 else:
                     #Play Soft Thunder
                     print "It is outside of Dinner Hours and within the activation Lockout. Play Soft Thunder."
-                    os.system('mpg321 Assets/CreepyLaugh.mp3 -q &')
+                    thunderLine(30)
         return
     except:
         #timeout
@@ -104,46 +118,3 @@ while True:
         break
     #disable the alarm after success
     signal.alarm(0)
-
-
-
-''' Commenting out the whole block so i can test timout
-while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
-    n = raw_input("Scanned ID: ")
-    currentScan = time.time()
-    if n == "0001603911":
-        Lights.cleanup()
-        break  # stops the loop
-    else :
-        #Trigger GPIO Pins. Lightning sticks on 13
-        Lights.activatePins([13])
-        print "Activate Pins\n"
-
-        #Log Activation of PI
-        Logging.LogAccess(n)
-
-        #If Between the hours of 630-10PM, Play Rumble
-        now = datetime.datetime.now()
-        now_time = now.time()
-        print datetime.time(17,30)
-        if datetime.time(17,30) <= now.time() <= datetime.time(21,00):
-            if currentScan - lastScan > 15:
-                #Play Soft Thunder
-                print "It is Between 630 and 10 and NOT within activation Lockout. " \
-                      "Play the Dinnertime Rumble of thunder.\n"
-                os.system('mpg321 Assets/CreepyLaugh.mp3 &' )
-                lastScan = currentScan
-            else:
-                print "It is between 630 and 10 and within the activation Lockout. " \
-                      "Do not play Dinnertime rumble of thunder. "
-        else:
-            #Else, Play Loud thunder if not in timeout. If IN timeout, play soft dinner thunder
-            if currentScan - lastScan > 15:
-                print "It is outside of Dinner Hours and NOT within activation Lockout. Play a random thunder crash."
-                lastScan = currentScan
-                # Play Random Thunder file
-                previousFile = AudioRandomizer.PlayRandomAudio("Assets/Trixie/", previousFile)
-            else:
-                #Play Soft Thunder
-                print "It is outside of Dinner Hours and within the activation Lockout. Play Soft Thunder."
-                os.system('mpg321 Assets/CreepyLaugh.mp3 &' )'''

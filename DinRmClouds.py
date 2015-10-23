@@ -27,6 +27,7 @@ def input():
         print 'You have 30 seconds to type in your stuff....'
         n = raw_input("Scanned ID: ")
         currentScan = time.time()
+        print 'Input is: ', n
         if n == "0001603911":
             Lights.cleanup()
             return False

@@ -19,14 +19,14 @@ def interrupted(signum, frame):
     subprocess.Popen(['sudo' ,'pkill', 'mpg321'])
     time.sleep(.5)
     # Play Thunder sequence
-    os.system('mpg321 Assets/Thunder/Lightning1.mp3 &' )
+    os.system('mpg321 Assets/Thunder/Lightning1.mp3 -q &')
     time.sleep(5)
-    os.system('mpg321 Assets/Thunder/Lightning2.mp3 &' )
+    os.system('mpg321 Assets/Thunder/Lightning2.mp3 -q &')
     time.sleep(5)
-    os.system('mpg321 Assets/Thunder/Lightning4.mp3 &' )
+    os.system('mpg321 Assets/Thunder/Lightning4.mp3 -q &')
     time.sleep(10)
     #play background loop
-    os.system('mpg321 Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 &' )
+    os.system('mpg321 Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
 
     signal.alarm(TIMEOUT)
 
@@ -68,7 +68,7 @@ def input():
                     #Play Soft Thunder
                     print "It is Between 630 and 10 and NOT within activation Lockout. " \
                           "Play the Dinnertime Rumble of thunder.\n"
-                    os.system('mpg321 Assets/CreepyLaugh.mp3 &' )
+                    os.system('mpg321 Assets/CreepyLaugh.mp3 -q &')
                     lastScan = currentScan
                 else:
                     print "It is between 630 and 10 and within the activation Lockout. " \
@@ -79,15 +79,15 @@ def input():
                     print "It is outside of Dinner Hours and NOT within activation Lockout. Play a random thunder crash."
                     lastScan = currentScan
                     # Play Thunder Sequence
-                    os.system('mpg321 Assets/Thunder/Lightning1.mp3 &' )
+                    os.system('mpg321 Assets/Thunder/Lightning1.mp3 -q &')
                     time.sleep(5)
-                    os.system('mpg321 Assets/Thunder/Lightning2.mp3 &' )
+                    os.system('mpg321 Assets/Thunder/Lightning2.mp3 -q &')
                     time.sleep(5)
-                    os.system('mpg321 Assets/Thunder/Lightning4.mp3 &' )
+                    os.system('mpg321 Assets/Thunder/Lightning4.mp3 -q &')
                 else:
                     #Play Soft Thunder
                     print "It is outside of Dinner Hours and within the activation Lockout. Play Soft Thunder."
-                    os.system('mpg321 Assets/CreepyLaugh.mp3 &' )
+                    os.system('mpg321 Assets/CreepyLaugh.mp3 -q &')
         return
     except:
         #timeout
@@ -95,7 +95,7 @@ def input():
 
 while True:
     #play background loop
-    os.system('mpg321 Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 &' )
+    os.system('mpg321 Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
     #set alarm
     print "Setting alarm to: ", TIMEOUT
     signal.alarm(TIMEOUT)

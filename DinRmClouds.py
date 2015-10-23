@@ -34,8 +34,8 @@ def input():
             return False
         else :
             print 'Doing our cool stuff'
-            #Trigger GPIO Pins. Lightning sticks on 13
-            Lights.activatePins([13])
+            #Trigger GPIO Pins. Lightning sticks on 13 - Temp disabling this too.
+            #Lights.activatePins([13])
             print "Activate Pins\n"
 
             #Log Activation of PI - Commented out till we're on the network

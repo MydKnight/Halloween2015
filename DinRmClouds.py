@@ -61,7 +61,12 @@ def input():
                     print "It is outside of Dinner Hours and NOT within activation Lockout. Play a random thunder crash."
                     lastScan = currentScan
                     # Play Random Thunder file
-                    previousFile = AudioRandomizer.PlayRandomAudio("Assets/Trixie/", previousFile)
+                    os.system('mpg321 Assets/Thunder/Lightning1.mp3 &' )
+                    time.sleep(5)
+                    os.system('mpg321 Assets/Thunder/Lightning2.mp3 &' )
+                    time.sleep(5)
+                    os.system('mpg321 Assets/Thunder/Lightning4.mp3 &' )
+
                 else:
                     #Play Soft Thunder
                     print "It is outside of Dinner Hours and within the activation Lockout. Play Soft Thunder."

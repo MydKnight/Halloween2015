@@ -86,6 +86,7 @@ def input():
 
 while True:
     #set alarm
+    print "Setting alarm to: ", TIMEOUT
     signal.alarm(TIMEOUT)
     s = input()
     if s == False:

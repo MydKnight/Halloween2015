@@ -29,9 +29,11 @@ def input():
         currentScan = time.time()
         print 'Input is: ', n
         if n == "0001603911":
+            print 'PKill scanned. Aborting Script.'
             Lights.cleanup()
             return False
         else :
+            print 'Doing our cool stuff'
             #Trigger GPIO Pins. Lightning sticks on 13
             Lights.activatePins([13])
             print "Activate Pins\n"

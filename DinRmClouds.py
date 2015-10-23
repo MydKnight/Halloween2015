@@ -74,7 +74,7 @@ def input():
         return
     except:
         #timeout
-        # Play Thunder sequence -
+        # Play Thunder sequence
         os.system('mpg321 Assets/Thunder/Lightning1.mp3 &' )
         time.sleep(5)
         os.system('mpg321 Assets/Thunder/Lightning2.mp3 &' )

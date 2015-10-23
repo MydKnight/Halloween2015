@@ -11,7 +11,7 @@ import signal
 previousFile = ""
 lastScan = 0
 
-TIMEOUT = 60
+TIMEOUT = 30
 
 def interrupted(signum, frame):
     print 'Nine minutes have passed. Playing files'

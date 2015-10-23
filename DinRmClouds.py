@@ -1,6 +1,6 @@
 __author__ = 'madsens'
 import Lights
-import Logging
+#import Logging
 import os
 import datetime
 import time
@@ -38,8 +38,8 @@ def input():
             Lights.activatePins([13])
             print "Activate Pins\n"
 
-            #Log Activation of PI
-            Logging.LogAccess(n)
+            #Log Activation of PI - Commented out till we're on the network
+            #Logging.LogAccess(n)
 
             #If Between the hours of 630-10PM, Play Rumble
             now = datetime.datetime.now()

@@ -9,7 +9,7 @@ from subprocess import Popen, PIPE
 lastScan = 0
 Lights.setup()
 previousFile = ""
-Popen(['mpg321', 'Assets/Crickets.mp3', '--loop', '0'], stdout=PIPE, close_fds=True)
+Popen(['mpg321', '/home/pi/Halloween2015/Assets/Crickets.mp3', '--loop', '0'], stdout=PIPE, close_fds=True)
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
     n = raw_input("Scanned ID: ")
@@ -24,7 +24,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
             #Log Activation of PI - No Audio
             #Logging.LogAccess(n)
         else:
-            Popen(['mpg321', 'Assets/CreepyLaugh.mp3'], stdout=PIPE, close_fds=True)
+            Popen(['mpg321', '/home/pi/Halloween2015Assets/CreepyLaugh.mp3'], stdout=PIPE, close_fds=True)
             #Log Activation of PI
             #Logging.LogAccess(n)
 

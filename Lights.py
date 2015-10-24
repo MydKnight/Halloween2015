@@ -7,12 +7,12 @@ import time
 
 def setup():
     GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(11, GPIO.OUT)
-    GPIO.setup(13, GPIO.OUT)
-    GPIO.setup(15, GPIO.OUT)
-    GPIO.setup(33, GPIO.OUT)
-    GPIO.setup(35, GPIO.OUT)
-    GPIO.setup(37, GPIO.OUT)
+    GPIO.setup(11, GPIO.OUT, initial=GPIO.HIGH)
+    GPIO.setup(13, GPIO.OUT, initial=GPIO.HIGH)
+    GPIO.setup(15, GPIO.OUT, initial=GPIO.HIGH)
+    GPIO.setup(33, GPIO.OUT, initial=GPIO.HIGH)
+    GPIO.setup(35, GPIO.OUT, initial=GPIO.HIGH)
+    GPIO.setup(37, GPIO.OUT, initial=GPIO.HIGH)
 
 def showColor(color):
     if color == "gold":

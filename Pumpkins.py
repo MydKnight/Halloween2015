@@ -29,7 +29,7 @@ def interrupted(signum, frame):
         # Play Glassando Audio
         os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/glissando.mp3 &')
         # Make Lightshow happen 1-62
-        for x in range(0, 230):
+        for x in range(0, 235):
             rndPump = random.randint(1,2)
             dmx.setChannel(rndPump, 255)
             dmx.render()
@@ -82,7 +82,7 @@ def input():
             # Play Glassando Audio
             os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/glissando.mp3 &')
             # Make Lightshow happen 1-62
-            for x in range(0, 230):
+            for x in range(0, 235):
                 rndPump = random.randint(1,2)
                 dmx.setChannel(rndPump, 255)
                 dmx.render()
@@ -100,11 +100,13 @@ def input():
                 time.sleep(.01)
             # Play next pumpkin file.
             os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/%i.mp3 &' %previousFile)
+            playing = MP3("/home/pi/Halloween2015/Assets/PumpkinAudio/%i.mp3" %previousFile)
             if previousFile == 22:
                 previousFile = 1
             else:
                 previousFile += 1
-            time.sleep(17)
+            print "Sleeping for: %i seconds.\n" %playing.info.length
+            time.sleep(playing.info.length)
             # Fade Down Pumpkin Lights
             for x in range(255,-1,-1):
                 dmx.setChannel(63, x)

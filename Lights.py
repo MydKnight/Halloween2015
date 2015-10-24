@@ -37,7 +37,7 @@ def activatePins(pinArray):
         GPIO.output(pin, False)
         print "Set " + str(pin) + " to On. \n"
 
-        time.sleep(1)
+        time.sleep(3)
 
         #Then set all pins back to false.
         GPIO.output(11, True)

@@ -19,7 +19,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         break  # stops the loop
     else :
         #If not within timeout window, play sound file
-        if currentScan - lastScan < 15:
+        if currentScan - lastScan < 240:
             print "Elapsed Time: ", currentScan - lastScan
             #Log Activation of PI - No Audio
             #Logging.LogAccess(n)

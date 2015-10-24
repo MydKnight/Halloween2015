@@ -27,9 +27,8 @@ def interrupted(signum, frame):
         # Do Pumpkin Tree
         # Play Glassando Audio
         os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/glissando.mp3 &')
-        time.sleep(1)
         # Make Lightshow happen 1-62
-        for x in range(0, 220):
+        for x in range(0, 230):
             rndPump = random.randint(1,2)
             dmx.setChannel(rndPump, 255)
             dmx.render()
@@ -79,9 +78,8 @@ def input():
             # Do Pumpkin Tree
             # Play Glassando Audio
             os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/glissando.mp3 &')
-            time.sleep(1)
             # Make Lightshow happen 1-62
-            for x in range(0, 210):
+            for x in range(0, 230):
                 rndPump = random.randint(1,2)
                 dmx.setChannel(rndPump, 255)
                 dmx.render()

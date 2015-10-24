@@ -36,13 +36,15 @@ def activatePins(pinArray):
         GPIO.output(pin, True)
         print "Set " + str(pin) + " to On. \n"
 
-    #Then set all pins back to false.
-    GPIO.output(11, False)
-    GPIO.output(13, False)
-    GPIO.output(15, False)
-    GPIO.output(33, False)
-    GPIO.output(35, False)
-    GPIO.output(37, False)
+        time.sleep(1)
+
+        #Then set all pins back to false.
+        GPIO.output(11, False)
+        GPIO.output(13, False)
+        GPIO.output(15, False)
+        GPIO.output(33, False)
+        GPIO.output(35, False)
+        GPIO.output(37, False)
 
 def cleanup():
     GPIO.cleanup()

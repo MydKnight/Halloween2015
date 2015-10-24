@@ -6,7 +6,7 @@ import random
 import signal
 from DmxPy import DmxPy
 
-dmx = DmxPy('/dev/ttyUSB0')
+dmx = DmxPy('/dev/ttyUSB1')
 TIMEOUT = 30
 previousFile = 1
 

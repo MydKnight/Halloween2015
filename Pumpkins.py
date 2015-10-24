@@ -74,7 +74,7 @@ def input():
                 dmx.render()
                 time.sleep(.01)
             # Play next pumpkin file.
-            os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/%i.mp3' %previousFile)
+            os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/%i.mp3 &' %previousFile)
             if previousFile == 22:
                 previousFile = 1
             else:

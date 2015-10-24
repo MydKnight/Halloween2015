@@ -46,8 +46,9 @@ def input():
         if rnd == 4:
             # Do Pumpkin Tree
             # Play Glassando Audio
-
+            os.system('mpg321 Assets/PumpkinAudio/glissando.mp3')
             # Make Lightshow happen
+
 
             print "pumpkin tree stuff here"
         else:

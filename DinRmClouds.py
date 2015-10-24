@@ -6,6 +6,7 @@ import datetime
 import time
 import subprocess
 import signal
+from ola.ClientWrapper import ClientWrapper
 
 #Lights.setup()
 previousFile = ""

@@ -42,6 +42,3 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         print "Modulo: ",num%3
 
         lastScan = currentScan
-
-
-

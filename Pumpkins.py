@@ -56,7 +56,7 @@ def input():
             # Play Glassando Audio
             os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/glissando.mp3 &')
             # Make Lightshow happen
-            for x in range(0, 1000):
+            for x in range(0, 500):
                 rndPump = random.randint(1,2)
                 dmx.setChannel(rndPump, 100)
                 dmx.render()

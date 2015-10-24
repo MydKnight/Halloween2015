@@ -53,7 +53,7 @@ def input():
         else:
             # Do Pumpkin Talk
             # Play next pumpkin file.
-            os.system('mpg321 Assets/PumpkinAudio/%i',previousFile )
+            os.system('mpg321 Assets/PumpkinAudio/%i' %previousFile)
             if previousFile == 22:
                 previousFile = 1
             else:

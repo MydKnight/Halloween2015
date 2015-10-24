@@ -4,12 +4,15 @@ import os
 import time
 import random
 import signal
+from DmxPy import DmxPy
 
+dmx = DmxPy('/dev/ttyUSB0')
 TIMEOUT = 30
 previousFile = 1
 
 def interrupted(signum, frame):
     global previousFile
+    global dmx
 
     print 'Nine minutes have passed. Playing files'
     rnd = random.randint(1,4)
@@ -32,6 +35,7 @@ def interrupted(signum, frame):
 
 def input():
     global previousFile
+    global dmx
 
     n = raw_input("Scanned ID: ")
     currentScan = time.time()
@@ -48,8 +52,13 @@ def input():
             # Play Glassando Audio
             os.system('mpg321 Assets/PumpkinAudio/glissando.mp3')
             # Make Lightshow happen
-
-
+            for x in range(0, 50):
+                rndPump = random.randint(1,2)
+                dmx.setChannel(rndPump, 100)
+                dmx.render()
+                time.sleep(.5)
+                dmx.blackout()
+                dmx.render()
             print "pumpkin tree stuff here"
         else:
             # Do Pumpkin Talk

@@ -40,6 +40,9 @@ def activatePins(pinArray):
     GPIO.output(11, False)
     GPIO.output(13, False)
     GPIO.output(15, False)
+    GPIO.output(33, False)
+    GPIO.output(35, False)
+    GPIO.output(37, False)
 
 def cleanup():
     GPIO.cleanup()

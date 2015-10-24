@@ -26,7 +26,7 @@ def interrupted(signum, frame):
     else:
         # Do Pumpkin Talk
         # Play next pumpkin file.
-        os.system('mpg321 Assets/PumpkinAudio/%i.mp3' %previousFile )
+        os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/%i.mp3' %previousFile )
         if previousFile == 22:
             previousFile = 1
         else:
@@ -50,7 +50,7 @@ def input():
         if rnd == 4:
             # Do Pumpkin Tree
             # Play Glassando Audio
-            os.system('mpg321 Assets/PumpkinAudio/glissando.mp3')
+            os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/glissando.mp3')
             # Make Lightshow happen
             for x in range(0, 50):
                 rndPump = random.randint(1,2)
@@ -63,7 +63,7 @@ def input():
         else:
             # Do Pumpkin Talk
             # Play next pumpkin file.
-            os.system('mpg321 Assets/PumpkinAudio/%i.mp3' %previousFile)
+            os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/%i.mp3' %previousFile)
             if previousFile == 22:
                 previousFile = 1
             else:

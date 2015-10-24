@@ -5,6 +5,7 @@ import time
 import random
 import signal
 from DmxPy import DmxPy
+from mutagen.MP3 import MP3
 
 dmx = DmxPy('/dev/ttyUSB0')
 TIMEOUT = 300
@@ -46,11 +47,13 @@ def interrupted(signum, frame):
             time.sleep(.01)
         # Play next pumpkin file.
         os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/%i.mp3 &' %previousFile)
+        playing = MP3("/home/pi/Halloween2015/Assets/PumpkinAudio/%i.mp3" %previousFile)
         if previousFile == 22:
             previousFile = 1
         else:
             previousFile += 1
-        time.sleep(17)
+        print "Sleeping for: %i seconds.\n" %playing.info.length
+        time.sleep(playing.info.length)
         # Fade Down Pumpkin Lights
         for x in range(255,-1,-1):
             dmx.setChannel(63, x)

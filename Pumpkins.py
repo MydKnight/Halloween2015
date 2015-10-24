@@ -55,10 +55,10 @@ def input():
             # Do Pumpkin Tree
             # Play Glassando Audio
             os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/glissando.mp3 &')
-            # Make Lightshow happen
+            # Make Lightshow happen 1-62
             for x in range(0, 300):
                 rndPump = random.randint(1,2)
-                dmx.setChannel(rndPump, 100)
+                dmx.setChannel(rndPump, 255)
                 dmx.render()
                 time.sleep(.05)
                 dmx.setChannel(rndPump, 20)
@@ -66,12 +66,25 @@ def input():
             print "pumpkin tree stuff here"
         else:
             # Do Pumpkin Talk
+            # Fade Up Pumpkin Lights
+            for x in range(0,255):
+                dmx.setChannel(63, x)
+                dmx.setChannel(64, x)
+                dmx.render()
+                time.sleep(.01)
             # Play next pumpkin file.
             os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/%i.mp3' %previousFile)
             if previousFile == 22:
                 previousFile = 1
             else:
                 previousFile += 1
+            time.sleep(17)
+            # Fade Down Pumpkin Lights
+            for x in range(255,-1,-1):
+                dmx.setChannel(63, x)
+                dmx.setChannel(64, x)
+                dmx.render()
+                time.sleep(.02)
 
 signal.signal(signal.SIGALRM, interrupted)
 

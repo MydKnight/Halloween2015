@@ -50,7 +50,7 @@ def input():
         if rnd == 4:
             # Do Pumpkin Tree
             # Play Glassando Audio
-            os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/glissando.mp3')
+            os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/glissando.mp3 &')
             # Make Lightshow happen
             for x in range(0, 50):
                 rndPump = random.randint(1,2)

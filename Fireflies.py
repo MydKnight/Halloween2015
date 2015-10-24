@@ -24,7 +24,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
             #Log Activation of PI - No Audio
             #Logging.LogAccess(n)
         else:
-            Popen(['mpg321', '/home/pi/Halloween2015Assets/CreepyLaugh.mp3'], stdout=PIPE, close_fds=True)
+            Popen(['mpg321', '/home/pi/Halloween2015/Assets/CreepyLaugh.mp3'], stdout=PIPE, close_fds=True)
             #Log Activation of PI
             #Logging.LogAccess(n)
 

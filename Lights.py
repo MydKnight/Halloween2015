@@ -33,18 +33,19 @@ def showColor(color):
 
 def activatePins(pinArray):
     for pin in pinArray:
-        GPIO.output(pin, True)
+        #Making False = OFF, True = ON
+        GPIO.output(pin, False)
         print "Set " + str(pin) + " to On. \n"
 
         time.sleep(1)
 
         #Then set all pins back to false.
-        GPIO.output(11, False)
-        GPIO.output(13, False)
-        GPIO.output(15, False)
-        GPIO.output(33, False)
-        GPIO.output(35, False)
-        GPIO.output(37, False)
+        GPIO.output(11, True)
+        GPIO.output(13, True)
+        GPIO.output(15, True)
+        GPIO.output(33, True)
+        GPIO.output(35, True)
+        GPIO.output(37, True)
 
 def cleanup():
     GPIO.cleanup()

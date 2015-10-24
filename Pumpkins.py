@@ -2,40 +2,71 @@ __author__ = 'madsens'
 import Logging
 import os
 import time
-import AudioRandomizer
+import random
+import signal
 
-previousFile = ""
-lastScan = 0
+TIMEOUT = 30
+previousFile = 1
 
-while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
+def interrupted(signum, frame):
+    global previousFile
+
+    print 'Nine minutes have passed. Playing files'
+    rnd = random.randint(1,4)
+    if rnd == 4:
+        # Do Pumpkin Tree
+        # Play Glassando Audio
+
+        # Make Lightshow happen
+
+        print "pumpkin tree stuff here"
+    else:
+        # Do Pumpkin Talk
+        # Play next pumpkin file.
+        os.system('mpg321 Assets/PumpkinAudio/%i',previousFile )
+        if previousFile == 22:
+            previousFile = 1
+        else:
+            previousFile += 1
+    signal.alarm(TIMEOUT)
+
+def input():
+    global previousFile
+
     n = raw_input("Scanned ID: ")
     currentScan = time.time()
     if n == "0001603911":
-        break  # stops the loop
+        print 'PKill scanned. Aborting Script.'
+        return False
     else :
-        #Log Activation of PI
-        Logging.LogAccess(n)
+        #Log Activation of PI - Disable for now
+        #Logging.LogAccess(n)
 
-        #Else, do X not in timeout. If IN timeout, do Y
-        if currentScan - lastScan > 15:
-            print "NOT within Activation Lockout"
-            lastScan = currentScan
-            # Play Random Thunder file
-            previousFile = AudioRandomizer.PlayRandomAudio("Assets/PumpkinAudio/", previousFile)
+        rnd = random.randint(1,4)
+        if rnd == 4:
+            # Do Pumpkin Tree
+            # Play Glassando Audio
+
+            # Make Lightshow happen
+
+            print "pumpkin tree stuff here"
         else:
-            #Play Soft Thunder
-            print "It is within the activation Lockout. Play Creepy Laugh."
-            os.system('mpg321 Assets/CreepyLaugh.mp3 &' )
+            # Do Pumpkin Talk
+            # Play next pumpkin file.
+            os.system('mpg321 Assets/PumpkinAudio/%i',previousFile )
+            if previousFile == 22:
+                previousFile = 1
+            else:
+                previousFile += 1
 
-        #Log Activation of PI
-        Logging.LogAudioAccess(n, previousFile)
+signal.signal(signal.SIGALRM, interrupted)
 
-# When RFID scanned
-
-# Play Glassando Audio
-
-# Make Lightshow happen
-
-# Trigger talking pumkins
-
-# Need to make it fire every X minutes anyway.
+while True:
+    #set alarm
+    print "Setting alarm to: ", TIMEOUT
+    signal.alarm(TIMEOUT)
+    s = input()
+    if s == False:
+        break
+    #disable the alarm after success
+    signal.alarm(0)

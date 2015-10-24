@@ -7,7 +7,7 @@ import signal
 from DmxPy import DmxPy
 
 dmx = DmxPy('/dev/ttyUSB1')
-TIMEOUT = 30
+TIMEOUT = 300
 previousFile = 1
 
 for x in range (1,60):
@@ -55,6 +55,7 @@ def input():
             # Do Pumpkin Tree
             # Play Glassando Audio
             os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/glissando.mp3 &')
+            time.sleep(3)
             # Make Lightshow happen 1-62
             for x in range(0, 300):
                 rndPump = random.randint(1,2)

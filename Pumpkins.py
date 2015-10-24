@@ -85,7 +85,7 @@ def input():
                 dmx.setChannel(63, x)
                 dmx.setChannel(64, x)
                 dmx.render()
-                time.sleep(.02)
+                time.sleep(.01)
 
 signal.signal(signal.SIGALRM, interrupted)
 

@@ -10,6 +10,10 @@ dmx = DmxPy('/dev/ttyUSB1')
 TIMEOUT = 30
 previousFile = 1
 
+for x in range (1,60):
+    dmx.setChannel(x, 20)
+dmx.render()
+
 def interrupted(signum, frame):
     global previousFile
     global dmx
@@ -57,7 +61,7 @@ def input():
                 dmx.setChannel(rndPump, 100)
                 dmx.render()
                 time.sleep(.05)
-                dmx.blackout()
+                dmx.setChannel(rndPump, 20)
                 dmx.render()
             print "pumpkin tree stuff here"
         else:

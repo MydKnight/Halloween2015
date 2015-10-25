@@ -4,7 +4,7 @@ import Logging
 import Movies
 
 Lights.setup()
-Movies.StartLoop('/home/pi/Halloween2015/Assets/VideoLoop')
+Movies.StartLoop('/home/pi/Halloween2015/Assets/Furnace')
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
     n = raw_input("Scanned ID: ")

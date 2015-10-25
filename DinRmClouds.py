@@ -28,12 +28,7 @@ def thunderLine(volume):
     subprocess.Popen(['sudo' ,'pkill', 'mpg321'])
     time.sleep(.5)
     # Play Thunder sequence
-    os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/Lightning1.mp3 --gain %i -q &' % volume)
-    time.sleep(5)
-    os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/Lightning2.mp3 --gain %i -q &' % volume)
-    time.sleep(5)
-    os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/Lightning4.mp3 --gain %i -q' % volume)
-    time.sleep(2)
+    os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/TriggerLightning.mp3 --gain %i -q' % volume)
     #play background loop
     os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
 
@@ -67,18 +62,24 @@ def input():
             print 'PKill scanned. Aborting Script.'
             Lights.cleanup()
             return False
-        elif n == "1234":
-            #Do Katies stuff
-            #Play Thunderline
-            thunderLine(100)
+        elif n == "0003756767":
+            # Do Katies stuff
+            # Stop Audio Loop
+            subprocess.Popen(['sudo' ,'pkill', 'mpg321'])
+            time.sleep(.5)
 
-            # Dim DMX 30% Light Channels, 0% Blacklight Channels
+            #Play Thunderline
+            os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/HorsemanLightning.mp3 & -q')
+
+            # After 4 secs, Dim DMX 30% Light Channels, 0% Blacklight Channels
             # Blacklight channels removed.
+            time.sleep(4)
             print "House Down"
-            setHouse(60)
+            setHouse(7)
 
             #Play Horseman Audio
-            os.system('mpg321 Assets/HorsemanSlashes.mp3 -q &')
+            time.sleep(4)
+            os.system('mpg321 /home/pi/Halloween2015/Assets/HorsemanSlashes.mp3 -q &')
             time.sleep(6)
 
             #Trigger GPIO Pins. Head Chop on 15 - Temp disabling this too.

@@ -10,6 +10,8 @@ from mutagen.mp3 import MP3
 dmx = DmxPy('/dev/ttyUSB0')
 TIMEOUT = 300
 previousFile = 1
+#Turn the reader back on.
+os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
 
 for x in range (1,60):
     dmx.setChannel(x, 20)

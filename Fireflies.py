@@ -12,6 +12,9 @@ Lights.setup()
 previousFile = ""
 Popen(['mpg321', '/home/pi/Halloween2015/Assets/Crickets.mp3', '--loop', '0'], stdout=PIPE, close_fds=True)
 
+#Turn the reader back on.
+os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
+
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
     n = raw_input("Scanned ID: ")
     currentScan = time.time()

@@ -3,7 +3,8 @@ __author__ = 'madsens'
 import Movies
 import time
 import os
-
+#Turn the reader back on.
+os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
 Movies.StartLoop('/home/pi/Halloween2015/Assets/BrawlFight')
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.

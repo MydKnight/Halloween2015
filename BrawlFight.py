@@ -2,7 +2,8 @@ __author__ = 'madsens'
 #import Logging
 import Movies
 import time
-import sys
+
+import select,sys,time,termios
 
 #Movies.StartLoop('/home/pi/Halloween2015/Assets/BrawlFight')
 
@@ -24,4 +25,3 @@ while True:    # Runs until break is encountered. We want to set it to break on 
 
         time.sleep(10)
 
-        sys.stdout.flush()

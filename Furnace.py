@@ -33,7 +33,5 @@ while True:    # Runs until break is encountered. We want to set it to break on 
 
         time.sleep(30)
 
-        Movies.PlayLoop()
-
         #Turn reader back on.
         os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")

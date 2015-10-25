@@ -28,7 +28,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Trigger GPIO Pins. 13 is Red
         Lights.showColor("red")
         time.sleep(2)
-        Lights.showColor()
+        Lights.showColor("none")
 
         #Play Furnace Video
         Movies.PlayMovie()

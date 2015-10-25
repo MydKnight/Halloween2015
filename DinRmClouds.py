@@ -142,8 +142,20 @@ while True:
     #set alarm
     print "Setting alarm to: ", TIMEOUT
     signal.alarm(TIMEOUT)
-    s = input()
-    if s == False:
-        break
+    #s = input()
+    #if s == False:
+    #    break
+    setHouse(20)
+    time.sleep(3)
+    setHouse(255)
+    time.sleep(3)
+    setHouse(20)
+    time.sleep(3)
+    setHouse(255)
+    time.sleep(3)
+    setHouse(20)
+    time.sleep(3)
+    setHouse(255)
+    time.sleep(3)
     #disable the alarm after success
     signal.alarm(0)

@@ -5,12 +5,19 @@ import datetime
 import time
 import subprocess
 import signal
+from DmxPy import DmxPy
 
-Lights.setup()
+dmx = DmxPy('/dev/ttyUSB0')
+Lights.setup2()
 previousFile = ""
 lastScan = 0
-TIMEOUT = 30
+TIMEOUT = 540
 
+def setHouse(intensity):
+    dmx.setChannel(1, 255)
+    dmx.setChannel(2, 255)
+    dmx.setChannel(3, 255)
+    dmx.setChannel(4, intensity)
 
 def thunderLine(volume):
     print "Playing Thunder Line.\n"
@@ -62,21 +69,28 @@ def input():
             #Play Thunderline
             thunderLine(100)
 
-            #Dim DMX 30% Light Channels, 0% Blacklight Channels
+            # Dim DMX 30% Light Channels, 0% Blacklight Channels
+            # Blacklight channels removed.
+            print "House Down"
+            setHouse(60)
 
             #Play Horseman Audio
             os.system('mpg321 Assets/HorsemanSlashes.mp3 -q &')
             time.sleep(6)
 
             #Trigger GPIO Pins. Head Chop on 15 - Temp disabling this too.
-            #Lights.activatePins([15])
+            print "Drop Head"
+            Lights.on([15])
             time.sleep(3)
 
             #Bring house lights back up DMX Lights 100%
+            print "House Back Up"
+            setHouse(255)
             time.sleep(30)
 
             #Reset Heads GPIO 11 then bring blacklight back up after 5
-            #Lights.activatePins([11])
+            print" Raising Head"
+            Lights.off([15])
         else :
             print 'Standard Activation'
 
@@ -118,7 +132,10 @@ def input():
         return
 
 while True:
-    #Reenable RFID
+    # Set House to full
+    setHouse(255)
+
+    # Reenable RFID
     os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
     #play background loop
     os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')

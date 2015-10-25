@@ -17,7 +17,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Logging.LogAccess(n)
 
         #Turn off the reader until function finishes.
-        os.system("echo '1-1.4' |sudo tee /sys/bus/drivers/usb/unbind")
+        os.system("echo '1-1.4' |sudo tee /sys/bus/usb/drivers/unbind")
 
         #Play Furnace Video - Test
         Movies.PlayMovie()
@@ -25,6 +25,6 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         time.sleep(20)
 
         #Turn the reader back on.
-        os.system("echo '1-1.4' |sudo tee /sys/bus/drivers/usb/unbind")
+        os.system("echo '1-1.4' |sudo tee /sys/bus/usb/drivers/unbind")
 
 

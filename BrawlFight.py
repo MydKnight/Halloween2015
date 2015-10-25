@@ -5,7 +5,7 @@ import Movies
 import time
 
 #Lights.setup()
-#Movies.StartLoop('/home/pi/Halloween2015/Assets/BarBrawl')
+Movies.StartLoop('/home/pi/Halloween2015/Assets/BarBrawl')
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
     n = raw_input("Scanned ID: ")
@@ -19,7 +19,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Logging.LogAccess(n)
 
         #Play Furnace Video - Test
-        #Movies.PlayMovie()
+        Movies.PlayMovie()
 
         #Wait until the Air Cannon should fire
         #time.sleep(10)

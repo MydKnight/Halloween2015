@@ -1,12 +1,13 @@
 __author__ = 'madsens'
 import Lights
-import Logging
+#import Logging
 import Movies
 
-Lights.setup()
+Lights.setup2()
 Movies.StartLoop('/home/pi/Halloween2015/Assets/Furnace')
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
+    Lights.activatePins([11])
     n = raw_input("Scanned ID: ")
     if n == "0001603911":
         Movies.StopLoop()
@@ -14,7 +15,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         break  # stops the loop
     else :
         #Log Activation of PI
-        Logging.LogAccess(n)
+        #Logging.LogAccess(n)
 
         #Trigger GPIO Pins. Fogger on 13
         Lights.activatePins([13])

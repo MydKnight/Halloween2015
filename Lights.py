@@ -5,6 +5,7 @@ import time
 import RPi.GPIO as GPIO
 import time
 
+#This sets up devices that need to be high on boot.
 def setup():
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(11, GPIO.OUT, initial=GPIO.HIGH)
@@ -13,6 +14,16 @@ def setup():
     GPIO.setup(33, GPIO.OUT, initial=GPIO.HIGH)
     GPIO.setup(35, GPIO.OUT, initial=GPIO.HIGH)
     GPIO.setup(37, GPIO.OUT, initial=GPIO.HIGH)
+
+#this sets up devices that need to be low on boot
+def setup2():
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(11, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(13, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(15, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(33, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(35, GPIO.OUT, initial=GPIO.LOW)
+    GPIO.setup(37, GPIO.OUT, initial=GPIO.LOW)
 
 def showColor(color):
     if color == "gold":

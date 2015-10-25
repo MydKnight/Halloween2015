@@ -47,6 +47,27 @@ def activatePins(pinArray):
         GPIO.output(35, True)
         GPIO.output(37, True)
 
+def activatePinsTimer(pinArray, seconds):
+    for pin in pinArray:
+        GPIO.output(pin, True)
+        print "Set " + str(pin) + " to On. \n"
+
+    time.sleep(seconds)
+
+    for pin in pinArray:
+        GPIO.output(pin, False)
+        print "Set " + str(pin) + " to Off. \n"
+
+def on(pinArray):
+    for pin in pinArray:
+        GPIO.output(pin, True)
+        print "Set " + str(pin) + " to On. \n"
+
+def off(pinArray):
+    for pin in pinArray:
+        GPIO.output(pin, False)
+        print "Set " + str(pin) + " to Off. \n"
+
 def cleanup():
     GPIO.cleanup()
 

@@ -1,12 +1,13 @@
 __author__ = 'madsens'
 import Lights
-import Logging
+#import Logging
 import time
-import AudioRandomizer
+import os
 
 lastScan = 0
 previousFile = ""
 Lights.setup()
+os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
     n = raw_input("Scanned ID: ")
@@ -14,16 +15,22 @@ while True:    # Runs until break is encountered. We want to set it to break on 
     if n == "0001603911":
         break  # stops the loop
     else :
-        #If not within timeout window, play sound file
-        if currentScan - lastScan < 15:
-            print "Elapsed Time: ", currentScan - lastScan
-        else:
-            #Trigger GPIO Pins. Trixie just uses pin 13
-            Lights.activatePins([13])
+        #Disable RFID
+        os.system("/home/pi/Halloween2015/Scripts/disableRFID.sh")
 
-            previousFile = AudioRandomizer.PlayRandomAudio("Assets/Trixie/", previousFile)
+        #Trigger GPIO Pins. Trixie just uses pin 13
+        Lights.on([13])
 
-            #Log Activation of PI
-            Logging.LogAudioAccess(n, previousFile)
+        time.sleep(1)
 
-            lastScan = currentScan
+        #Play Creepy Laugh
+        os.system('mpg321 Assets/CreepyLaugh.mp3 -q')
+
+        #Trixie GPIO Off
+        Lights.off([13])
+
+        #Log Activation of PI
+        #Logging.LogAudioAccess(n, previousFile)
+
+        #Reenable RFID
+        os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")

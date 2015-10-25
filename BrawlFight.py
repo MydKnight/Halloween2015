@@ -22,10 +22,10 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Movies.PlayMovie()
 
         #Wait until the Air Cannon should fire
-        time.sleep(10)
+        #time.sleep(10)
 
         #Trigger GPIO Pins. Air Cannon on 13
         #Lights.activatePins([13])
 
         #Wait for the rest of the Movie
-        time.sleep(5)
+        #time.sleep(5)

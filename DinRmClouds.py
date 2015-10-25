@@ -136,26 +136,26 @@ while True:
     setHouse(255)
 
     # Reenable RFID
-    os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
+    #os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
     #play background loop
-    os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
+    #os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
     #set alarm
-    print "Setting alarm to: ", TIMEOUT
-    signal.alarm(TIMEOUT)
+    #print "Setting alarm to: ", TIMEOUT
+    #signal.alarm(TIMEOUT)
     #s = input()
     #if s == False:
     #    break
-    setHouse(20)
-    time.sleep(3)
-    setHouse(255)
-    time.sleep(3)
-    setHouse(20)
-    time.sleep(3)
-    setHouse(255)
-    time.sleep(3)
-    setHouse(20)
-    time.sleep(3)
-    setHouse(255)
-    time.sleep(3)
+    #setHouse(20)
+    #time.sleep(3)
+    #setHouse(255)
+    #time.sleep(3)
+    #setHouse(20)
+    #time.sleep(3)
+    #setHouse(255)
+    #time.sleep(3)
+    #setHouse(20)
+    #time.sleep(3)
+    #setHouse(255)
+    #time.sleep(3)
     #disable the alarm after success
-    signal.alarm(0)
+    #signal.alarm(0)

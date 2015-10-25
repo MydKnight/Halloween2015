@@ -17,14 +17,14 @@ def thunderLine(volume):
     subprocess.Popen(['sudo' ,'pkill', 'mpg321'])
     time.sleep(.5)
     # Play Thunder sequence
-    os.system('mpg321 Assets/Thunder/Lightning1.mp3 --gain %s -q &', volume)
+    os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/Lightning1.mp3 --gain %s -q &', volume)
     time.sleep(5)
-    os.system('mpg321 Assets/Thunder/Lightning2.mp3 --gain %s -q &', volume)
+    os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/Lightning2.mp3 --gain %s -q &', volume)
     time.sleep(5)
-    os.system('mpg321 Assets/Thunder/Lightning4.mp3 --gain %s -q', volume)
+    os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/Lightning4.mp3 --gain %s -q', volume)
     time.sleep(2)
     #play background loop
-    os.system('mpg321 Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
+    os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
 
 
 def interrupted(signum, frame):
@@ -110,7 +110,7 @@ def input():
 
 while True:
     #play background loop
-    os.system('mpg321 Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
+    os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
     #set alarm
     print "Setting alarm to: ", TIMEOUT
     signal.alarm(TIMEOUT)

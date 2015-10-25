@@ -77,15 +77,13 @@ def input():
             print "House Down"
             setHouse(7)
 
-            #Play Horseman Audio
+            #Play Horseman Audio and drop heads
             time.sleep(4)
-            os.system('mpg321 /home/pi/Halloween2015/Assets/HorsemanSlashes.mp3 -q &')
-            time.sleep(6)
-
-            #Trigger GPIO Pins. Head Chop on 15 - Temp disabling this too.
+            #Trigger GPIO Pins. Head Chop on 15
             print "Drop Head"
             Lights.on([15])
-            time.sleep(3)
+            os.system('mpg321 /home/pi/Halloween2015/Assets/HorsemanSlashes.mp3 -q')
+            time.sleep(2)
 
             #Bring house lights back up DMX Lights 100%
             print "House Back Up"

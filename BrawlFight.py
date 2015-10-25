@@ -22,8 +22,6 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Wait until Video finishes
         #time.sleep(20)
 
-        stdout = sys.stdout
-        sys.stdout = sys.stderr
         time.sleep(10)
 
-        sys.stdout = stdout
+        sys.stdout.flush()

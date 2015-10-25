@@ -13,6 +13,7 @@ TIMEOUT = 30
 
 
 def thunderLine(volume):
+    print "Playing Thunder Line.\n"
     #Stop Playback of loop, and give it a second to clear
     subprocess.Popen(['sudo' ,'pkill', 'mpg321'])
     time.sleep(.5)

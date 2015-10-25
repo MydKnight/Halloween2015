@@ -24,4 +24,4 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #time.sleep(20)
 
         time.sleep(10)
-
+        termios.tcflush(sys.stdin,termios.TCIFLUSH)

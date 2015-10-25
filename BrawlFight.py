@@ -5,7 +5,7 @@ import time
 import KeyboardLocker
 
 #Movies.StartLoop('/home/pi/Halloween2015/Assets/BrawlFight')
-kl = KeyboardLocker(serio=0)
+kl = KeyboardLocker.KeyboardLocker(serio=0)
 device = kl.description()
 print "We got a lock on", device
 

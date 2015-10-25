@@ -20,6 +20,7 @@ def setHouse(intensity):
     dmx.setChannel(2, 255)
     dmx.setChannel(3, 255)
     dmx.setChannel(4, intensity)
+    dmx.render()
 
 def thunderLine(volume):
     print "Playing Thunder Line.\n"
@@ -140,33 +141,13 @@ def input():
         return
 
 while True:
-    # Set House to full
-    dmx.setChannel(1, 255)
-    dmx.setChannel(2, 255)
-    dmx.setChannel(3, 255)
-    dmx.setChannel(4, 20 )
-
     # Reenable RFID
-    #os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
-    #play background loop
+    os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
     #set alarm
-    #print "Setting alarm to: ", TIMEOUT
-    #signal.alarm(TIMEOUT)
-    raw_input()
-    #s = input()
-    #if s == False:
-    #    break
-    #setHouse(20)
-    #time.sleep(3)
-    #setHouse(255)
-    #time.sleep(3)
-    #setHouse(20)
-    #time.sleep(3)
-    #setHouse(255)
-    #time.sleep(3)
-    #setHouse(20)
-    #time.sleep(3)
-    #setHouse(255)
-    #time.sleep(3)
+    print "Setting alarm to: ", TIMEOUT
+    signal.alarm(TIMEOUT)
+    s = input()
+    if s == False:
+        break
     #disable the alarm after success
-    #signal.alarm(0)
+    signal.alarm(0)

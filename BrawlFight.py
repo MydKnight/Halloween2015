@@ -9,7 +9,7 @@ Movies.StartLoop('/home/pi/Halloween2015/Assets/BarBrawl')
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
     n = raw_input("Scanned ID: ")
-    if n == "0001603911":
+    if n == "STOP":
         Movies.StopLoop()
         Lights.cleanup()
         break  # stops the loop

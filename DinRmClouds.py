@@ -13,6 +13,8 @@ previousFile = ""
 lastScan = 0
 TIMEOUT = 540
 
+os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
+
 def setHouse(intensity):
     dmx.setChannel(1, 255)
     dmx.setChannel(2, 255)
@@ -91,6 +93,9 @@ def input():
             #Reset Heads GPIO 11 then bring blacklight back up after 5
             print" Raising Head"
             Lights.off([15])
+
+            #Restart Audio
+            os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
         else :
             print 'Standard Activation'
 
@@ -126,6 +131,9 @@ def input():
         #Enable RFID
         os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
 
+        #Restart Audio
+        os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
+
         return
     except:
         #timeout
@@ -133,15 +141,18 @@ def input():
 
 while True:
     # Set House to full
-    setHouse(255)
-    setHouse(0)
+    dmx.setChannel(1, 255)
+    dmx.setChannel(2, 255)
+    dmx.setChannel(3, 255)
+    dmx.setChannel(4, 20)
+
     # Reenable RFID
-    os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
+    #os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
     #play background loop
-    #os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
     #set alarm
     #print "Setting alarm to: ", TIMEOUT
     #signal.alarm(TIMEOUT)
+    raw_input()
     #s = input()
     #if s == False:
     #    break

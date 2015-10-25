@@ -134,9 +134,9 @@ def input():
 while True:
     # Set House to full
     setHouse(255)
-
+    setHouse(0)
     # Reenable RFID
-    #os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
+    os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
     #play background loop
     #os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
     #set alarm

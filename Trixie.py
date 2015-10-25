@@ -24,7 +24,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         time.sleep(1)
 
         #Play Creepy Laugh
-        os.system('mpg321 Assets/CreepyLaugh.mp3 -q')
+        os.system('mpg321 /home/pi/Halloween2015/Assets/CreepyLaugh.mp3 -q')
 
         #Trixie GPIO Off
         Lights.off([13])

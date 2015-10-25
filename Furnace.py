@@ -19,14 +19,16 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         Lights.cleanup()
         break  # stops the loop
     else :
+        #Turn off the reader until function finishes.
+        os.system("/home/pi/Halloween2015/Scripts/disableRFID.sh")
+
         #Log Activation of PI
         #Logging.LogAccess(n)
 
         #Trigger GPIO Pins. 13 is Red
         Lights.showColor("red")
-
-        #Turn off the reader until function finishes.
-        os.system("/home/pi/Halloween2015/Scripts/disableRFID.sh")
+        time.sleep(2)
+        Lights.showColor()
 
         #Play Furnace Video
         Movies.PlayMovie()
@@ -35,3 +37,4 @@ while True:    # Runs until break is encountered. We want to set it to break on 
 
         #Turn reader back on.
         os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
+        Lights.showColor("gold")

@@ -5,7 +5,6 @@ import time
 import random
 import signal
 from DmxPy import DmxPy
-from mutagen.mp3 import MP3
 
 dmx = DmxPy('/dev/ttyUSB0')
 TIMEOUT = 300

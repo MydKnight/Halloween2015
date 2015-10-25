@@ -4,6 +4,7 @@ import Lights
 import time
 import Logging
 from subprocess import Popen, PIPE
+import os
 # This code runs the fireflies gag
 
 lastScan = 0
@@ -18,6 +19,9 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         Lights.cleanup()
         break  # stops the loop
     else :
+        #Turn off the reader until function finishes.
+        os.system("/home/pi/Halloween2015/Scripts/disableRFID.sh")
+
         #If not within timeout window, play sound file
         if currentScan - lastScan < 240:
             print "Elapsed Time: ", currentScan - lastScan
@@ -42,3 +46,6 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         print "Modulo: ",num%3
 
         lastScan = currentScan
+
+        #Turn the reader back on.
+        os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")

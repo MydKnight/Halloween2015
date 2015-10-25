@@ -23,6 +23,9 @@ def interrupted(signum, frame):
     #Log Activation of PI - Disable for now
     #Logging.LogAccess(n)
 
+    #Turn off the reader until function finishes.
+    os.system("/home/pi/Halloween2015/Scripts/disableRFID.sh")
+
     rnd = random.randint(1,4)
     if rnd == 4:
         # Do Pumpkin Tree
@@ -61,6 +64,8 @@ def interrupted(signum, frame):
             dmx.render()
             time.sleep(.01)
 
+    #Turn the reader back on.
+    os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
     signal.alarm(TIMEOUT)
 
 def input():
@@ -75,6 +80,9 @@ def input():
     else :
         #Log Activation of PI - Disable for now
         #Logging.LogAccess(n)
+
+        #Turn off the reader until function finishes.
+        os.system("/home/pi/Halloween2015/Scripts/disableRFID.sh")
 
         rnd = random.randint(1,4)
         if rnd == 4:
@@ -113,6 +121,9 @@ def input():
                 dmx.setChannel(64, x)
                 dmx.render()
                 time.sleep(.01)
+
+        #Turn the reader back on.
+        os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
 
 signal.signal(signal.SIGALRM, interrupted)
 

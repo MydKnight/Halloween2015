@@ -17,7 +17,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Logging.LogAccess(n)
 
         #Turn off the reader until function finishes.
-        os.system("/home/pi/disableRFID.sh")
+        os.system("/home/pi/Halloween2015/Scripts/disableRFID.sh")
 
         #Play Furnace Video - Test
         Movies.PlayMovie()
@@ -25,6 +25,6 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         time.sleep(20)
 
         #Turn the reader back on.
-        os.system("/home/pi/enableRFID.sh")
+        os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
 
 

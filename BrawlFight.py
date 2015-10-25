@@ -21,5 +21,6 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         Movies.PlayMovie()
 
         #Wait until Video finishes
-        time.sleep(20)
-        termios.tcflush(sys.stdin,termios.TCIFLUSH)
+        for x in range (0,20):
+            time.sleep(1)
+            termios.tcflush(sys.stdin,termios.TCIFLUSH)

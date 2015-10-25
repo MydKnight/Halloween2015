@@ -125,8 +125,11 @@ while True:
     #set alarm
     print "Setting alarm to: ", TIMEOUT
     signal.alarm(TIMEOUT)
-    s = input()
-    if s == False:
-        break
+    # Commenting out the input command to test Lightning Play
+    #s = input()
+    # Testing Lightning Play.
+    thunderLine(100)
+    #if s == False:
+        #break
     #disable the alarm after success
     signal.alarm(0)

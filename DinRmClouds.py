@@ -1,18 +1,16 @@
 __author__ = 'madsens'
 import Lights
-#import Logging
 import os
 import datetime
 import time
 import subprocess
 import signal
-from ola.ClientWrapper import ClientWrapper
 
-#Lights.setup()
+Lights.setup()
 previousFile = ""
 lastScan = 0
-
 TIMEOUT = 30
+
 
 def thunderLine(volume):
     #Stop Playback of loop, and give it a second to clear
@@ -28,12 +26,18 @@ def thunderLine(volume):
     #play background loop
     os.system('mpg321 Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
 
+
 def interrupted(signum, frame):
     print 'Nine minutes have passed. Playing files'
     thunderLine(100)
+    # Relay communication is Opposite. On = Off
+    Lights.off([33])
+    time.sleep(5)
+    Lights.on([33])
     signal.alarm(TIMEOUT)
 
 signal.signal(signal.SIGALRM, interrupted)
+
 
 def input():
     global lastScan
@@ -69,11 +73,12 @@ def input():
             #Reset Heads GPIO 11 then bring blacklight back up after 5
             #Lights.activatePins([11])
         else :
-            print 'Doing our cool stuff'
+            print 'Standard Activation'
 
-            #Trigger GPIO Pins. Lightning sticks on 13 - Temp disabling this too.
-            #Lights.activatePins([13])
-            print "Activate Pins\n"
+            #Trigger GPIO Pins. Lightning sticks on 33 - Relay Opposite. On=Off
+            Lights.off([33])
+            time.sleep(5)
+            Lights.on([33])
 
             #Log Activation of PI - Commented out till we're on the network
             #Logging.LogAccess(n)
@@ -93,16 +98,11 @@ def input():
                     print "It is between 630 and 10 and within the activation Lockout. " \
                           "Do not play Dinnertime rumble of thunder. "
             else:
-                #Else, Play Loud thunder if not in timeout. If IN timeout, play soft dinner thunder
-                if currentScan - lastScan > 15:
-                    print "It is outside of Dinner Hours and NOT within activation Lockout. Play thunder."
-                    lastScan = currentScan
-                    # Play Thunder Sequence
-                    thunderLine(100)
-                else:
-                    #Play Soft Thunder
-                    print "It is outside of Dinner Hours and within the activation Lockout. Play Soft Thunder."
-                    thunderLine(30)
+                #Else, Play Loud thunder outside of dinner
+                print "It is outside of Dinner Hours. Play thunder."
+                lastScan = currentScan
+                # Play Thunder Sequence
+                thunderLine(100)
         return
     except:
         #timeout

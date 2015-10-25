@@ -70,5 +70,3 @@ def off(pinArray):
 
 def cleanup():
     GPIO.cleanup()
-
-#http://blog.oscarliang.net/raspberry-pi-and-arduino-connected-serial-gpio/

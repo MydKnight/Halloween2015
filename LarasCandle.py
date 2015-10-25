@@ -17,12 +17,12 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         os.system("/home/pi/Halloween2015/Scripts/disableRFID.sh")
 
         #Trigger GPIO Pins. This uses a Relay, so we need to actually call OFF to turn it on...
-        Lights.off([13])
+        Lights.off([37])
 
         time.sleep(3)
 
         #Candle GPIO "off"
-        Lights.on([13])
+        Lights.on([37])
 
         #Log Activation of PI
         #Logging.LogAudioAccess(n, previousFile)

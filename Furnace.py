@@ -4,7 +4,7 @@ import Lights
 import Movies
 
 Lights.setup2()
-#Movies.StartLoop('/home/pi/Halloween2015/Assets/Furnace')
+Movies.StartLoop('/home/pi/Halloween2015/Assets/Furnace')
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
     n = raw_input("Scanned ID: ")
@@ -20,5 +20,5 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Trigger GPIO Pins. 13 is Red
         Lights.activatePins([13])
 
-        #Play Furnace Video - Test
-        #Movies.PlayMovie()
+        #Play Furnace Video
+        Movies.PlayMovie()

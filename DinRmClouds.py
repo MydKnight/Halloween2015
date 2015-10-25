@@ -144,7 +144,7 @@ while True:
     dmx.setChannel(1, 255)
     dmx.setChannel(2, 255)
     dmx.setChannel(3, 255)
-    dmx.setChannel(4, 20)
+    dmx.setChannel(4, 20 )
 
     # Reenable RFID
     #os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")

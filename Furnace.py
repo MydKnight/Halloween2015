@@ -8,7 +8,7 @@ Lights.setup2()
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
     n = raw_input("Scanned ID: ")
-    Lights.activatePins([11])
+    #Lights.activatePins([11])
     if n == "0001603911":
         Movies.StopLoop()
         Lights.cleanup()
@@ -17,7 +17,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Log Activation of PI
         #Logging.LogAccess(n)
 
-        #Trigger GPIO Pins. Fogger on 13
+        #Trigger GPIO Pins. 13 is Red
         Lights.activatePins([13])
 
         #Play Furnace Video - Test

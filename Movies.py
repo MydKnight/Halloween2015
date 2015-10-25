@@ -26,3 +26,14 @@ def StopLoop():
     subprocess.Popen(['sudo' ,'pkill', 'info-beamer'])
     #print "Starting Movie Loop"
     return
+
+def PlayLoop ():
+    UDP_IP = "localhost"
+    UDP_PORT = 4444
+    MESSAGE = "looper/set:loop"
+
+    sock = socket.socket(socket.AF_INET, # Internet
+                 socket.SOCK_DGRAM) # UDP
+    sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
+    os.system('stty sane')
+    return

@@ -21,8 +21,5 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Play Furnace Video - Test
         Movies.PlayMovie()
 
-        #Wait until the Air Cannon should fire
-        time.sleep(8)
-
-        #Trigger GPIO Pins. Air Cannon on 13
-        Lights.activatePins([13])
+        #Wait until Video finishes
+        time.sleep(20)

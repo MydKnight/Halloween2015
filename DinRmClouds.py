@@ -46,6 +46,10 @@ def input():
     try:
         print 'You have 30 seconds to type in your stuff....'
         n = raw_input("Scanned ID: ")
+
+        #Disable RFID
+        os.system("/home/pi/Halloween2015/Scripts/disableRFID.sh")
+
         currentScan = time.time()
         print 'Input is: ', n
         if n == "0001603911":
@@ -103,12 +107,18 @@ def input():
                 lastScan = currentScan
                 # Play Thunder Sequence
                 thunderLine(100)
+
+        #Enable RFID
+        os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
+
         return
     except:
         #timeout
         return
 
 while True:
+    #Reenable RFID
+    os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
     #play background loop
     os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
     #set alarm

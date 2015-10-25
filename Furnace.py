@@ -13,7 +13,7 @@ Movies.StartLoop('/home/pi/Halloween2015/Assets/Furnace')
 
 while True:    # Runs until break is encountered. We want to set it to break on a particular ID.
     n = raw_input("Scanned ID: ")
-    #Lights.activatePins([11])
+    Lights.showColor("gold")
     if n == "0001603911":
         Movies.StopLoop()
         Lights.cleanup()
@@ -23,7 +23,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Logging.LogAccess(n)
 
         #Trigger GPIO Pins. 13 is Red
-        Lights.activatePins([13])
+        Lights.showColor("red")
 
         #Turn off the reader until function finishes.
         os.system("/home/pi/Halloween2015/Scripts/disableRFID.sh")
@@ -31,7 +31,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Play Furnace Video
         Movies.PlayMovie()
 
-        time.sleep(20)
+        time.sleep(30)
 
         Movies.PlayLoop()
 

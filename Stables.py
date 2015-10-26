@@ -48,9 +48,7 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         Lights.on([37])
         time.sleep(1)
 
-        #Trigger Barn Door Flapping
-        Lights.on([33])
-        time.sleep(1)
+        #Trigger Barn Door Flapping - Relay so reversed
         Lights.off([33])
         time.sleep(1)
         Lights.on([33])
@@ -60,6 +58,8 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         Lights.on([33])
         time.sleep(1)
         Lights.off([33])
+        time.sleep(1)
+        Lights.on([33])
 
         #Wait?
         time.sleep(3)

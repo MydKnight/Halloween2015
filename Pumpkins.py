@@ -34,7 +34,7 @@ def interrupted(signum, frame):
         os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/glissando.mp3 &')
         # Make Lightshow happen 1-62
         for x in range(0, 260):
-            rndPump = random.randint(1,2)
+            rndPump = random.randint(1,62)
             dmx.setChannel(rndPump, 255)
             dmx.render()
             time.sleep(.05)
@@ -92,7 +92,7 @@ def input():
             os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/glissando.mp3 &')
             # Make Lightshow happen 1-62
             for x in range(0, 260):
-                rndPump = random.randint(1,2)
+                rndPump = random.randint(1,62)
                 dmx.setChannel(rndPump, 255)
                 dmx.render()
                 time.sleep(.05)

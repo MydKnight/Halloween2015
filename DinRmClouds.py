@@ -81,7 +81,7 @@ def input():
             time.sleep(4)
             #Trigger GPIO Pins. Head Chop on 15
             print "Drop Head"
-            Lights.off([15])
+            Lights.off([37])
             os.system('mpg321 /home/pi/Halloween2015/Assets/HorsemanSlashes.mp3 -q')
             time.sleep(2)
 
@@ -92,7 +92,7 @@ def input():
 
             #Reset Heads GPIO 11 then bring blacklight back up after 5
             print" Raising Head"
-            Lights.on([15])
+            Lights.on([37])
 
             #Restart Audio
             os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')

@@ -8,7 +8,7 @@ import signal
 from DmxPy import DmxPy
 
 dmx = DmxPy('/dev/ttyUSB0')
-Lights.setup2()
+Lights.setup()
 previousFile = ""
 lastScan = 0
 TIMEOUT = 540
@@ -62,7 +62,7 @@ def input():
             print 'PKill scanned. Aborting Script.'
             Lights.cleanup()
             return False
-        elif n == "0003756767":
+        elif n == "0003756767" or "0006951576" or "0009621329 " or "0006968801":
             # Do Katies stuff
             # Stop Audio Loop
             subprocess.Popen(['sudo' ,'pkill', 'mpg321'])

@@ -62,7 +62,7 @@ def input():
             print 'PKill scanned. Aborting Script.'
             Lights.cleanup()
             return False
-        elif n == "0003756767" or "0006951576" or "0009621329 " or "0006968801":
+        elif n == "0003756767" or n == "0006951576" or n == "0009621329 " or n == "0006968801":
             # Do Katies stuff
             # Stop Audio Loop
             subprocess.Popen(['sudo' ,'pkill', 'mpg321'])
@@ -81,7 +81,7 @@ def input():
             time.sleep(4)
             #Trigger GPIO Pins. Head Chop on 15
             print "Drop Head"
-            Lights.on([15])
+            Lights.off([15])
             os.system('mpg321 /home/pi/Halloween2015/Assets/HorsemanSlashes.mp3 -q')
             time.sleep(2)
 
@@ -92,7 +92,7 @@ def input():
 
             #Reset Heads GPIO 11 then bring blacklight back up after 5
             print" Raising Head"
-            Lights.off([15])
+            Lights.on([15])
 
             #Restart Audio
             os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')

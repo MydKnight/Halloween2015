@@ -25,15 +25,9 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Turn off the reader until function finishes.
         os.system("/home/pi/Halloween2015/Scripts/disableRFID.sh")
 
-        #If not within timeout window, play sound file
-        if currentScan - lastScan < 240:
-            print "Elapsed Time: ", currentScan - lastScan
-            #Log Activation of PI - No Audio
-            #Logging.LogAccess(n)
-        else:
-            Popen(['mpg321', '/home/pi/Halloween2015/Assets/CreepyLaugh.mp3'], stdout=PIPE, close_fds=True)
-            #Log Activation of PI
-            #Logging.LogAccess(n)
+        Popen(['mpg321', '/home/pi/Halloween2015/Assets/CreepyLaugh.mp3'], stdout=PIPE, close_fds=True)
+        #Log Activation of PI
+        #Logging.LogAccess(n)
 
         #Trigger GPIO Pins. Do mod3 on the card. If 0, X and Y, if 1 trigger X, if 2 trigger Y.
         num=int(n)

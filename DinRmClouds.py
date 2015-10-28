@@ -62,11 +62,15 @@ def input():
             print 'PKill scanned. Aborting Script.'
             Lights.cleanup()
             return False
-        elif n == "0003756767" or n == "0006951576" or n == "0009621329 " or n == "0006968801":
+        elif n == "0003756767" or n == "0006951576" or n == "0009621329" or n == "0006968801":
             # Do Katies stuff
             # Stop Audio Loop
             subprocess.Popen(['sudo' ,'pkill', 'mpg321'])
             time.sleep(.5)
+
+            #Trigger GPIO Pins. Lightning sticks on 33 - Relay Opposite. On=Off
+            Lights.off([33])
+            time.sleep(1.5)
 
             #Play Thunderline
             os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/HorsemanLightning.mp3 & -q')
@@ -85,7 +89,8 @@ def input():
             os.system('mpg321 /home/pi/Halloween2015/Assets/HorsemanSlashes.mp3 -q')
             time.sleep(2)
 
-            #Bring house lights back up DMX Lights 100%
+            #Bring house lights back up DMX Lights 100% and stop lightning
+            Lights.on([33])
             print "House Back Up"
             setHouse(255)
             time.sleep(30)

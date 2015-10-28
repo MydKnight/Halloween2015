@@ -70,7 +70,6 @@ def input():
 
             #Trigger GPIO Pins. Lightning sticks on 33 - Relay Opposite. On=Off
             Lights.off([33])
-            time.sleep(1.5)
 
             #Play Thunderline
             os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/HorsemanLightning.mp3 & -q')

@@ -84,11 +84,17 @@ def input():
 
             #Play Horseman Audio and drop heads
             time.sleep(4)
+
+            os.system('mpg321 /home/pi/Halloween2015/Assets/HorsemanSlashes.mp3 -q &')
+            time.sleep(10)
+
+            #After 10 seconds, drop heads.
             #Trigger GPIO Pins. Head Chop on 15
             print "Drop Head"
             Lights.on([37])
-            os.system('mpg321 /home/pi/Halloween2015/Assets/HorsemanSlashes.mp3 -q')
-            time.sleep(2)
+
+            #wait an additional 11 seconds
+            time.sleep(11)
 
             #Bring house lights back up DMX Lights 100% and stop lightning
             Lights.on([33])

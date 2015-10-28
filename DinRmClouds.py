@@ -91,7 +91,9 @@ def input():
             #Bring house lights back up DMX Lights 100% and stop lightning
             Lights.on([33])
             print "House Back Up"
-            setHouse(255)
+            for x in range (20,255):
+                setHouse(x)
+                time.sleep(.02)
             time.sleep(30)
 
             #Reset Heads GPIO 11 then bring blacklight back up after 5

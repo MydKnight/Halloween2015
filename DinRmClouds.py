@@ -19,7 +19,7 @@ os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0
 
 def setHouse(intensity):
     dmx.setChannel(1, 255)
-    dmx.setChannel(2, 255)
+    dmx.setChannel(2, 200)
     dmx.setChannel(3, 255)
     dmx.setChannel(4, intensity)
     dmx.render()
@@ -37,10 +37,9 @@ def thunderLine(volume):
 
 def interrupted(signum, frame):
     print 'Nine minutes have passed. Playing files'
-    thunderLine(100)
     # Relay communication is Opposite. On = Off
     Lights.off([33])
-    time.sleep(5)
+    thunderLine(100)
     Lights.on([33])
     signal.alarm(TIMEOUT)
 
@@ -115,8 +114,6 @@ def input():
 
             #Trigger GPIO Pins. Lightning sticks on 33 - Relay Opposite. On=Off
             Lights.off([33])
-            time.sleep(5)
-            Lights.on([33])
 
             #Log Activation of PI - Commented out till we're on the network
             #Logging.LogAccess(n)
@@ -141,6 +138,9 @@ def input():
                 lastScan = currentScan
                 # Play Thunder Sequence
                 thunderLine(100)
+
+            #Finally, turn lights back on
+            Lights.on([33])
 
         #Enable RFID
         os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")

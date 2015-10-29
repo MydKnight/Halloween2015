@@ -115,6 +115,8 @@ def input():
             playing = MP3("/home/pi/Halloween2015/Assets/PumpkinAudio/%i.mp3" %previousFile)
             if previousFile == 22:
                 previousFile = 1
+            elif previousFile == 10:
+                previousFile +2
             else:
                 previousFile += 1
             print "Sleeping for: %i seconds.\n" %playing.info.length

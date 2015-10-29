@@ -19,7 +19,7 @@ os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0
 
 def setHouse(intensity):
     dmx.setChannel(1, 255)
-    dmx.setChannel(2, 200)
+    dmx.setChannel(2, 255)
     dmx.setChannel(3, 255)
     dmx.setChannel(4, intensity)
     dmx.render()

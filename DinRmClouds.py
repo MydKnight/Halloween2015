@@ -24,6 +24,8 @@ def setHouse(intensity):
     dmx.setChannel(4, intensity)
     dmx.render()
 
+setHouse(255)
+
 def thunderLine(volume):
     print "Playing Thunder Line.\n"
     #Stop Playback of loop, and give it a second to clear
@@ -156,6 +158,7 @@ def input():
 while True:
     # Reenable RFID
     os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
+    setHouse(255)
     #set alarm
     print "Setting alarm to: ", TIMEOUT
     signal.alarm(TIMEOUT)

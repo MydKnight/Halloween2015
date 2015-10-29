@@ -13,8 +13,8 @@ previousFile = 1
 #Turn the reader back on.
 os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
 
-for x in range (1,60):
-    dmx.setChannel(x, 20)
+for x in range (1,62):
+    dmx.setChannel(x, 50)
 dmx.render()
 
 def interrupted(signum, frame):
@@ -34,11 +34,11 @@ def interrupted(signum, frame):
         # Play Glassando Audio
         os.system('mpg321 /home/pi/Halloween2015/Assets/PumpkinAudio/glissando.mp3 &')
         # Make Lightshow happen 1-62
-        for x in range(0, 260):
+        for x in range(0, 60):
             rndPump = random.randint(1,62)
             dmx.setChannel(rndPump, 255)
             dmx.render()
-            time.sleep(.05)
+            time.sleep(.2)
             dmx.setChannel(rndPump, 20)
             dmx.render()
         print "pumpkin tree stuff here"

@@ -27,6 +27,9 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         Popen(['sudo' ,'pkill', 'mpg321'])
         time.sleep(1)
 
+        #Play Horseman Audio
+        Popen(['mpg321', '/home/pi/Halloween2015/Assets/Stables/Horse.mp3'], stdout=PIPE, close_fds=True)
+
         #Trigger Horse Nose - Relay so reversed
         Lights.off([33])
         time.sleep(2)
@@ -34,8 +37,6 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         Lights.off([35])
 
         time.sleep(2)
-        #Play Horseman Audio
-        Popen(['mpg321', '/home/pi/Halloween2015/Assets/Stables/Horse.mp3'], stdout=PIPE, close_fds=True)
 
         Lights.on([33])
 

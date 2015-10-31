@@ -23,35 +23,38 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Turn off the reader until function finishes.
         os.system("/home/pi/Halloween2015/Scripts/disableRFID.sh")
 
+        #Stop Barn Noises
+        Popen(['sudo' ,'pkill', 'mpg321'])
+        time.sleep(1)
+
         #Trigger Horse Nose - Relay so reversed
         Lights.off([33])
         time.sleep(4)
         Lights.on([33])
 
-        time.sleep(10)
-
-        #Stop Barn Noises
-        Popen(['sudo' ,'pkill', 'mpg321'])
-        time.sleep(1)
+        #Trigger Horse Eyes - Relay so reversed
+        Lights.off([35])
 
         #Play Horseman Audio
         Popen(['mpg321', '/home/pi/Halloween2015/Assets/Stables/Horse.mp3'], stdout=PIPE, close_fds=True)
 
-        #Trigger Horse Eyes - Relay so reversed
-        Lights.off([35])
-
-
         #Trigger Barn Door Flapping - Relay so reversed
         Lights.off([37])
-        time.sleep(.05)
+        time.sleep(.25)
         Lights.on([37])
-        time.sleep(.05)
+        time.sleep(.25)
         Lights.off([37])
-        time.sleep(.05)
+        time.sleep(.25)
         Lights.on([37])
-        time.sleep(.05)
+        time.sleep(.25)
         Lights.off([37])
-        time.sleep(.05)
+        time.sleep(.25)
+        Lights.on([37])
+
+        time.sleep(2)
+
+        Lights.off([37])
+        time.sleep(.25)
         Lights.on([37])
 
         time.sleep(2)
@@ -64,23 +67,6 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         time.sleep(.05)
         Lights.on([37])
         time.sleep(.05)
-        Lights.off([37])
-        time.sleep(.05)
-        Lights.on([37])
-
-        time.sleep(2)
-
-        Lights.off([37])
-        time.sleep(.05)
-        Lights.on([37])
-        time.sleep(.05)
-        Lights.off([37])
-        time.sleep(.05)
-        Lights.on([37])
-        time.sleep(.05)
-        Lights.off([37])
-        time.sleep(.05)
-        Lights.on([37])
 
         #Wait?
         time.sleep(3)

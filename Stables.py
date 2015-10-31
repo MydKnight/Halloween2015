@@ -23,6 +23,11 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Turn off the reader until function finishes.
         os.system("/home/pi/Halloween2015/Scripts/disableRFID.sh")
 
+        #Trigger Horse Nose - Relay so reversed
+        Lights.off([37])
+        time.sleep(4)
+        Lights.on([37])
+
         #Stop Barn Noises
         Popen(['sudo' ,'pkill', 'mpg321'])
         time.sleep(1)
@@ -33,10 +38,6 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         #Trigger Horse Eyes - Relay so reversed
         Lights.off([35])
 
-        #Trigger Horse Nose - Relay so reversed
-        Lights.off([37])
-        time.sleep(4)
-        Lights.on([37])
 
         #Trigger Barn Door Flapping - Relay so reversed
         Lights.off([33])

@@ -112,44 +112,51 @@ def input():
             #Restart Audio
             os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
         else :
-            print 'Standard Activation'
+            # Do Katies stuff
+            # Stop Audio Loop
+            subprocess.Popen(['sudo' ,'pkill', 'mpg321'])
+            time.sleep(.5)
 
             #Trigger GPIO Pins. Lightning sticks on 33 - Relay Opposite. On=Off
             Lights.off([33])
 
-            #Log Activation of PI - Commented out till we're on the network
-            #Logging.LogAccess(n)
+            #Play Thunderline
+            os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/HorsemanLightning.mp3 & -q')
 
-            #If Between the hours of 630-10PM, Play Rumble
-            now = datetime.datetime.now()
-            now_time = now.time()
-            print datetime.time(17,30)
-            if datetime.time(17,30) <= now.time() <= datetime.time(21,00):
-                if currentScan - lastScan > 15:
-                    #Play Soft Thunder
-                    print "It is Between 630 and 10 and NOT within activation Lockout. " \
-                          "Play the Dinnertime Rumble of thunder.\n"
-                    thunderLine(30)
-                    lastScan = currentScan
-                else:
-                    print "It is between 630 and 10 and within the activation Lockout. " \
-                          "Do not play Dinnertime rumble of thunder. "
-            else:
-                #Else, Play Loud thunder outside of dinner
-                print "It is outside of Dinner Hours. Play thunder."
-                lastScan = currentScan
-                # Play Thunder Sequence
-                thunderLine(100)
+            # After 4 secs, Dim DMX 30% Light Channels, 0% Blacklight Channels
+            # Blacklight channels removed.
+            time.sleep(4)
+            print "House Down"
+            setHouse(7)
 
-            #Finally, turn lights back on
+            #Play Horseman Audio and drop heads
+            time.sleep(4)
+
+            os.system('mpg321 /home/pi/Halloween2015/Assets/HorsemanSlashes.mp3 -q &')
+            time.sleep(10)
+
+            #After 10 seconds, drop heads.
+            #Trigger GPIO Pins. Head Chop on 15
+            print "Drop Head"
+            Lights.on([37])
+
+            #wait an additional 11 seconds
+            time.sleep(11)
+
+            #Bring house lights back up DMX Lights 100% and stop lightning
             Lights.on([33])
+            print "House Back Up"
+            for x in range (20,255):
+                setHouse(x)
+                time.sleep(.02)
+            time.sleep(30)
 
-        #Enable RFID
-        os.system("/home/pi/Halloween2015/Scripts/enableRFID.sh")
+            #Reset Heads GPIO 11 then bring blacklight back up after 5
+            print" Raising Head"
+            Lights.off([37])
 
-        #Restart Audio
-        os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
-
+            #Restart Audio
+            os.system('mpg321 /home/pi/Halloween2015/Assets/Thunder/RagingWinds.mp3 --loop 0 --gain 30 -q &')
         return
     except:
         #timeout

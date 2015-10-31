@@ -28,6 +28,8 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         time.sleep(4)
         Lights.on([37])
 
+        time.sleep(10)
+
         #Stop Barn Noises
         Popen(['sudo' ,'pkill', 'mpg321'])
         time.sleep(1)

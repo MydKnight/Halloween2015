@@ -56,7 +56,7 @@ def interrupted(signum, frame):
         if previousFile == 22:
             previousFile = 1
         elif previousFile == 10:
-            previousFile +2
+            previousFile += 2
         else:
             previousFile += 1
         print "Sleeping for: %i seconds.\n" %playing.info.length
@@ -116,7 +116,7 @@ def input():
             if previousFile == 22:
                 previousFile = 1
             elif previousFile == 10:
-                previousFile +2
+                previousFile += 2
             else:
                 previousFile += 1
             print "Sleeping for: %i seconds.\n" %playing.info.length

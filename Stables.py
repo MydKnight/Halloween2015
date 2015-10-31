@@ -43,15 +43,43 @@ while True:    # Runs until break is encountered. We want to set it to break on 
 
         #Trigger Barn Door Flapping - Relay so reversed
         Lights.off([33])
-        time.sleep(1)
+        time.sleep(.05)
         Lights.on([33])
-        time.sleep(1)
+        time.sleep(.05)
         Lights.off([33])
-        time.sleep(1)
+        time.sleep(.05)
         Lights.on([33])
-        time.sleep(1)
+        time.sleep(.05)
         Lights.off([33])
-        time.sleep(1)
+        time.sleep(.05)
+        Lights.on([33])
+
+        time.sleep(2)
+
+        Lights.off([33])
+        time.sleep(.05)
+        Lights.on([33])
+        time.sleep(.05)
+        Lights.off([33])
+        time.sleep(.05)
+        Lights.on([33])
+        time.sleep(.05)
+        Lights.off([33])
+        time.sleep(.05)
+        Lights.on([33])
+
+        time.sleep(2)
+
+        Lights.off([33])
+        time.sleep(.05)
+        Lights.on([33])
+        time.sleep(.05)
+        Lights.off([33])
+        time.sleep(.05)
+        Lights.on([33])
+        time.sleep(.05)
+        Lights.off([33])
+        time.sleep(.05)
         Lights.on([33])
 
         #Wait?

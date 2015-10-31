@@ -29,20 +29,23 @@ while True:    # Runs until break is encountered. We want to set it to break on 
 
         #Trigger Horse Nose - Relay so reversed
         Lights.off([33])
-        time.sleep(4)
-        Lights.on([33])
-
+        time.sleep(2)
         #Trigger Horse Eyes - Relay so reversed
         Lights.off([35])
 
+        time.sleep(2)
         #Play Horseman Audio
         Popen(['mpg321', '/home/pi/Halloween2015/Assets/Stables/Horse.mp3'], stdout=PIPE, close_fds=True)
+
+        Lights.on([33])
+
+
 
         #Trigger Barn Door Flapping - Relay so reversed
         Lights.off([37])
         time.sleep(.25)
         Lights.on([37])
-        time.sleep(.25)
+        time.sleep(.05)
         Lights.off([37])
         time.sleep(.25)
         Lights.on([37])

@@ -34,19 +34,9 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         Lights.off([35])
 
         #Trigger Horse Nose - Relay so reversed
+        Lights.off([37])
         time.sleep(4)
-        Lights.off([37])
-        time.sleep(1)
         Lights.on([37])
-        time.sleep(1)
-        Lights.off([37])
-        time.sleep(1)
-        Lights.on([37])
-        time.sleep(1)
-        Lights.off([37])
-        time.sleep(1)
-        Lights.on([37])
-        time.sleep(1)
 
         #Trigger Barn Door Flapping - Relay so reversed
         Lights.off([33])

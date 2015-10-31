@@ -24,9 +24,9 @@ while True:    # Runs until break is encountered. We want to set it to break on 
         os.system("/home/pi/Halloween2015/Scripts/disableRFID.sh")
 
         #Trigger Horse Nose - Relay so reversed
-        Lights.off([37])
+        Lights.off([33])
         time.sleep(4)
-        Lights.on([37])
+        Lights.on([33])
 
         time.sleep(10)
 
@@ -42,45 +42,45 @@ while True:    # Runs until break is encountered. We want to set it to break on 
 
 
         #Trigger Barn Door Flapping - Relay so reversed
-        Lights.off([33])
+        Lights.off([37])
         time.sleep(.05)
-        Lights.on([33])
+        Lights.on([37])
         time.sleep(.05)
-        Lights.off([33])
+        Lights.off([37])
         time.sleep(.05)
-        Lights.on([33])
+        Lights.on([37])
         time.sleep(.05)
-        Lights.off([33])
+        Lights.off([37])
         time.sleep(.05)
-        Lights.on([33])
+        Lights.on([37])
 
         time.sleep(2)
 
-        Lights.off([33])
+        Lights.off([37])
         time.sleep(.05)
-        Lights.on([33])
+        Lights.on([37])
         time.sleep(.05)
-        Lights.off([33])
+        Lights.off([37])
         time.sleep(.05)
-        Lights.on([33])
+        Lights.on([37])
         time.sleep(.05)
-        Lights.off([33])
+        Lights.off([37])
         time.sleep(.05)
-        Lights.on([33])
+        Lights.on([37])
 
         time.sleep(2)
 
-        Lights.off([33])
+        Lights.off([37])
         time.sleep(.05)
-        Lights.on([33])
+        Lights.on([37])
         time.sleep(.05)
-        Lights.off([33])
+        Lights.off([37])
         time.sleep(.05)
-        Lights.on([33])
+        Lights.on([37])
         time.sleep(.05)
-        Lights.off([33])
+        Lights.off([37])
         time.sleep(.05)
-        Lights.on([33])
+        Lights.on([37])
 
         #Wait?
         time.sleep(3)
